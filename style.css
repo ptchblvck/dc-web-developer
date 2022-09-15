@@ -1,5 +1,16 @@
 body {
     text-align: center;
+    padding: 15% 7%;
+}
+
+/* Heading */
+.headline-title {
+    font-size: 3.5rem;
+    color: #A26AF6;
+}
+
+.headline-title:hover {
+    color: #E470EB;
 }
 
 .webdev {
