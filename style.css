@@ -1,6 +1,8 @@
 body {
     text-align: center;
     padding: 15% 7%;
+    color: #ABA6A8;
+    background-color: #F7F0F3;
 }
 
 /* Heading */
@@ -13,6 +15,16 @@ body {
     color: #E470EB;
 }
 
+/* image */
+
+.code-image {
+    text-align: center;
+    width: 12%;
+    border-radius: 100%;
+}
+
+/* webdev */
+
 .webdev {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
@@ -20,7 +32,7 @@ body {
 
 .webdev-link {
     text-decoration: none;
-    color: #8f8f8f;
+    color: #E470EB;
 }
 
 .webdev-link:hover {
