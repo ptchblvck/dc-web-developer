@@ -6,3 +6,12 @@ body {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
+
+.webdev-link {
+    text-decoration: none;
+    color: #000;
+}
+
+.webdev-link:hover {
+    color: blueviolet;
+}
