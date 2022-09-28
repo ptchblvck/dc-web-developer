@@ -39,7 +39,6 @@ body {
 .row > li {
   position: relative;
   float: right;
-  display: inline-block;
   text-align: right;
   list-style-type: none;
 }
