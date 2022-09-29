@@ -8,22 +8,19 @@
     <title>My Profile</title>
   </head>
   <body>
-    <header>
+    <main>
       <nav class="menu">
-        <!-- <ul class="row"> -->
         <li class="menu-item">
           <a class="menu-link" href="#about-me">about me</a>
         </li>
         <li class="menu-item">
-          <a class="menu-link" href="#skills">skills</a>
+          <a class="menu-link active-bold" href="#skills">skills</a>
         </li>
         <li class="menu-item">
           <a class="menu-link" href="#contact">contact</a>
         </li>
-        <!-- </ul> -->
       </nav>
-    </header>
-    <main>
+
       <section id="about-me">
         <div class="about-my-border">
           <h1>My Profile</h1>
@@ -31,9 +28,10 @@
 
           <div>
             <img src="pn.png" alt="profile=picture" class="profile-picture" />
-            <p class="name">Johannes</p>
-            <p>Anticipating Developer</p>
-            <p>Austria, Vorarlberg</p>
+            <p class="profile-item name">Johannes</p>
+            <p class="profile-item">Anticipating Developer</p>
+            <p class="profile-item address-item">Austria, Vorarlberg</p>
+            <p class="profile-item js-item">not using JS this time</p>
           </div>
         </div>
       </section>
@@ -54,9 +52,51 @@
         </div>
       </section>
 
+      <section id="pictures">
+        <div class="picture-box">
+          <h1>Some random pictures of code?</h1>
+          <div class="picture-collage">
+            <img src="img/code.jpg" alt="code-img" />
+            <img src="img/jungle.jpg" alt="jungle-img" />
+            <img src="img/macc.jpg" alt="mac-img" />
+            <img src="img/think.jpg" alt="think-img" />
+            <img src="img/escr.jpg" alt="eat-sleep-code-img" />
+            <img src="img/sleep.jpg" alt="sleep-img" />
+          </div>
+        </div>
+      </section>
+
       <section id="contact">
         <h1>Contact</h1>
-        <form action=""></form>
+        <form action="">
+          <div class="contact-form">
+            <label for="contact-name">Enter your name: </label
+            ><input
+              type="text"
+              name="contact-name"
+              required
+              placeholder="Max Mustermann"
+            />
+            <label for="contact-email">Email: </label
+            ><input
+              type="mail"
+              name="contact-email"
+              required
+              placeholder="max.mustermann@mustermail.at"
+            />
+            <label for="contact-message">Send your message here: </label
+            ><textarea
+              type="text"
+              name="contact-message"
+              placeholder="Hey there, I'm messaging you ..."
+              size="50"
+              id="contact-message"
+              maxlength="255"
+            ></textarea>
+          </div>
+
+          <input type="submit" value="Send Message" class="contact-submit" />
+        </form>
       </section>
     </main>
     <footer></footer>
