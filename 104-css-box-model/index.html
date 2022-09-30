@@ -5,11 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/scss/main.css" />
+    <link rel="icon" href="img/favicon/favicon.ico" />
     <title>My Profile Responsive</title>
   </head>
   <body>
     <header class="site-header" id="site-header">
       <!-- the navigation bar will be here and the header section will be used as the item being oriented top of this website -->
+      <div class="header-logo" id="header-logo">
+        <a href="" alt="link-to-homepage"
+          ><img src="img/svg/logo.svg" class="header-logo-svg" /><span
+            >ptchblvck</span
+          ></a
+        >
+      </div>
       <div class="header-navigation" id="header-navigation">
         <nav class="navigation-bar" id="nav-bar">
           <ul>
@@ -28,12 +36,12 @@
           </ul>
         </nav>
       </div>
-      <div class="searchbar">
-        <a href="">
-          <img src="" alt="" class="search-icon" /><input
-            type="text"
-            placeholder="Search"
-          />
+      <div class="search-bar" id="search-bar">
+        <input type="text" placeholder="Search" />
+        <a href="" alt="search-button"
+          ><span>
+            <img src="img/svg/search.svg" class="search-icon" />
+          </span>
         </a>
       </div>
     </header>
@@ -44,9 +52,12 @@
         <div class="about-my-border">
           <h1>My Profile</h1>
           <p>Business-Card</p>
-
+          <img
+            src="img/gnome.jpg"
+            alt="profile=picture"
+            class="profile-picture"
+          />
           <div>
-            <img src="pn.png" alt="profile=picture" class="profile-picture" />
             <p class="profile-item name">Johannes</p>
             <p class="profile-item">Anticipating Developer</p>
             <p class="profile-item address-item">Austria, Vorarlberg</p>

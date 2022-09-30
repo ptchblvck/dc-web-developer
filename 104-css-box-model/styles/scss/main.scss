@@ -1,0 +1,59 @@
+@use "base";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+// header of the what is this?
+
+.site-header {
+  background-color: base.$primary-color;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  //   align-items: center;
+  .header-logo {
+    .header-logo-svg {
+      height: 50px;
+    }
+  }
+  .header-navigation {
+    #nav-bar {
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        flex: 1;
+        align-items: baseline;
+      }
+      li {
+        list-style: none;
+      }
+    }
+    #search-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+  }
+}
+
+// profile section
+
+.my-profile {
+  .about-my-border {
+    div {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .profile-picture {
+      width: 25%;
+      border-radius: 50%;
+    }
+  }
+}
