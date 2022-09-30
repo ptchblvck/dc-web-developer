@@ -167,26 +167,27 @@ body {
 
 .picture-collage {
   display: grid;
+  grid-auto-flow: dense;
   grid-template-columns: 33% 33% 33%;
 }
 
 .picture-collage > img {
   width: 100%;
-  height: 50%;
+  height: 100%;
   object-fit: cover;
 }
 
-.picture-collage > img:last-child {
-  height: 100%;
+/* .picture-collage > img:last-child {
+  width: 100%;
 }
 
 .picture-collage > img:nth-child(4) {
-  height: 100%;
+  width: 100%;
 }
 
 .picture-collage > img:nth-child(5) {
-  height: 100%;
-}
+  width: 100%;
+} */
 
 /* contact section  */
 

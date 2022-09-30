@@ -7,14 +7,134 @@
     <title>My Profile Responsive</title>
   </head>
   <body>
-    <header>
+    <header class="site-header" id="site-header">
       <!-- the navigation bar will be here and the header section will be used as the item being oriented top of this website -->
+      <div class="header-navigation" id="header-navigation">
+        <nav class="navigation-bar" id="nav-bar">
+          <ul>
+            <li>
+              <a href=""><span>about me</span></a>
+            </li>
+            <li>
+              <a href=""><span>skills</span></a>
+            </li>
+            <li>
+              <a href=""><span>pictures</span></a>
+            </li>
+            <li>
+              <a href=""><span>contact</span></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="searchbar">
+        <a href="">
+          <img src="" alt="" class="search-icon" /><input
+            type="text"
+            placeholder="Search"
+          />
+        </a>
+      </div>
     </header>
     <main>
       <!-- in this section there will be some sub-sections to various navigation points -->
+      <section class="my-profile" id="my-profile">
+        <div class="about-my-border">
+          <h1>My Profile</h1>
+          <p>Business-Card</p>
+
+          <div>
+            <img src="pn.png" alt="profile=picture" class="profile-picture" />
+            <p class="profile-item name">Johannes</p>
+            <p class="profile-item">Anticipating Developer</p>
+            <p class="profile-item address-item">Austria, Vorarlberg</p>
+            <p class="profile-item js-item">not using JS this time</p>
+          </div>
+        </div>
+      </section>
+      <!-- this is the end of this section. there should not be any more profile info coming -->
+
+      <section class="skills" id="skills">
+        <!-- I'll show off some of my nonexisten skills in this section. Might be very impressed by this  -->
+        <h1>Skills</h1>
+        <h2>HTML</h2>
+        <div class="HTML-bar progress-bar">
+          <div class="HTML color-bar">40%</div>
+        </div>
+        <h2>CSS</h2>
+        <div class="CSS-bar progress-bar">
+          <div class="CSS color-bar">30%</div>
+        </div>
+        <h2>Javascript</h2>
+        <div class="Java-bar progress-bar">
+          <div class="Java color-bar">3%</div>
+        </div>
+      </section>
+      <!-- This is the end of this section. No more Skills. No glory -->
+      <section class="pictures" id="pictures">
+        <!-- there should be a lot of cool pictures in this section. Let's hope you enjoy  -->
+        <div class="picture-box">
+          <h1>Some random pictures of code?</h1>
+          <div class="picture-collage">
+            <img src="img/code.jpg" alt="code-img" />
+            <img src="img/jungle.jpg" alt="jungle-img" />
+            <img src="img/macc.jpg" alt="mac-img" />
+            <img src="img/think.jpg" alt="think-img" />
+            <img src="img/escr.jpg" alt="eat-sleep-code-img" />
+            <img src="img/sleep.jpg" alt="sleep-img" />
+          </div>
+        </div>
+      </section>
+      <!-- No more pictures in this section please! -->
+
+      <section class="contact-me" id="contact-me">
+        <!-- There's a contact form in this section. I hope this won't break yet  -->
+        <h1>Contact</h1>
+        <form action="">
+          <div class="contact-form">
+            <label for="contact-name">Enter your name: </label
+            ><input
+              type="text"
+              name="contact-name"
+              required
+              placeholder="Max Mustermann"
+            />
+            <label for="contact-email">Email: </label
+            ><input
+              type="mail"
+              name="contact-email"
+              required
+              placeholder="max.mustermann@mustermail.at"
+            />
+            <label for="contact-message">Send your message here: </label
+            ><textarea
+              type="text"
+              name="contact-message"
+              placeholder="Hey there, I'm messaging you ..."
+              size="50"
+              id="contact-message"
+              maxlength="255"
+            ></textarea>
+          </div>
+
+          <input type="submit" value="Send Message" class="contact-submit" />
+        </form>
+      </section>
+      <!-- no more contact after this! Only Links and pain! -->
     </main>
     <footer>
       <!-- credits are mentioned here with some links to socials -->
+      <div class="site-footer" id="site-footer">
+        <a href="" alt="instagram-link"
+          ><img src="img/svg/instagram.svg" /> <span class="instagram"></span
+        ></a>
+        <a href="" alt="github-link"
+          ><img src="img/svg/github.svg" /> <span class="github"></span
+        ></a>
+        <a href="" alt="twitter-link"
+          ><img src="img/svg/twitter.svg" /> <span class="twitter"></span
+        ></a>
+      </div>
     </footer>
   </body>
 </html>
