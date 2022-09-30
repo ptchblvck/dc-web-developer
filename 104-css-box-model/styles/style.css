@@ -1,0 +1,69 @@
+body {
+  text-align: center;
+  padding-top: 10%;
+  padding-bottom: 0;
+  color: #aba6a8;
+  background-color: #f7f0f3;
+}
+
+/* Heading */
+.headline-title {
+  font-size: 3.5rem;
+  color: #a26af6;
+}
+
+.headline-title:hover {
+  color: #e470eb;
+}
+
+/* image */
+
+.code-image {
+  text-align: center;
+  width: 17%;
+  border-radius: 100%;
+}
+
+/* webdev */
+
+.webdev {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+.webdev-link {
+  text-decoration: none;
+  color: #e470eb;
+}
+
+.webdev-link:hover {
+  color: blueviolet;
+}
+
+/* footer */
+
+footer {
+  padding-top: 200px;
+  padding-left: auto;
+  padding-right: auto;
+  padding-bottom: 0;
+}
+
+/* profile */
+
+.my-profile {
+  margin-bottom: 0;
+}
+
+.profile-page {
+  text-decoration: none;
+  color: #e470eb;
+}
+
+.profile-page:hover {
+  color: blueviolet;
+}
+
+.profile-page:active {
+  color: #d45b87;
+}
