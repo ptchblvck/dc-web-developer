@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url(fonts/Montserrat/static/Montserrat-Regular.ttf), "Montserrat-Bold";
+  src: url(fonts/Montserrat/static/Montserrat-Bold.ttf), "Montserrat-Light";
+  src: url(fonts/Montserrat/static/Montserrat-Light.ttf), "Montserrat-Medium";
+  src: url(fonts/Montserrat/static/Montserrat-Medium.ttf),
+    "Montserrat-Extralight";
+  src: url(fonts/Montserrat/static/Montserrat-ExtraLight.ttf);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #00003f;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  margin-bottom: 2.5rem;
+}
+
+h2 {
+  margin-bottom: 2rem;
+}
+
+h3 {
+  margin-bottom: 1.5rem;
+}
+
+h4,
+h5 {
+  margin-bottom: 1rem;
+}
+
+h5 {
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+h6 {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+/* main {
+} */
+
+.button {
+  display: inline-block;
+  border-radius: 2rem;
+  background-color: #00003f;
+  color: #fff;
+  padding: 1rem 2.5rem;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #f0c631;
+  color: #00003f;
+}
+
+.icon {
+  width: 50px;
+  fill: #f0c631;
+}
