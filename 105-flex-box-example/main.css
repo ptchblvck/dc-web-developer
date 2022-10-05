@@ -1,0 +1,118 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url(fonts/Montserrat/static/Montserrat-Regular.ttf), "Montserrat-Bold";
+  src: url(fonts/Montserrat/static/Montserrat-Bold.ttf), "Montserrat-Light";
+  src: url(fonts/Montserrat/static/Montserrat-Light.ttf), "Montserrat-Medium";
+  src: url(fonts/Montserrat/static/Montserrat-Medium.ttf),
+    "Montserrat-Extralight";
+  src: url(fonts/Montserrat/static/Montserrat-ExtraLight.ttf);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  color: #00003f;
+}
+
+main {
+  background-color: #d6dce6;
+}
+
+header {
+  display: flex;
+  padding: 0 50px;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  border-bottom: 5px solid #00003f;
+  align-items: center;
+}
+
+header .logo {
+  flex-grow: 3;
+}
+
+header .logo .logo-home {
+  width: 300px;
+}
+
+header nav ul {
+  padding-left: 0;
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+
+header nav ul li {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  flex-shrink: 0;
+  flex-grow: 2;
+}
+
+header nav ul .nav-link {
+  border-bottom: 5px transparent solid;
+}
+
+header nav ul .nav-link:hover {
+  border-bottom: 5px #f0c631 solid;
+  color: #0000a5;
+}
+
+main #header-section {
+  display: flex;
+  /* flex-flow: row wrap; */
+  height: 70vh;
+  align-items: center;
+}
+
+main #header-section .header-article {
+  padding-right: 50px;
+  padding-left: 50px;
+  width: 70%;
+}
+
+main #header-section .header-article h2 {
+  font-size: 3em;
+  margin-bottom: 3rem;
+}
+
+main #header-section .header-article p {
+  font-size: 1.2em;
+  margin-bottom: 3rem;
+}
+
+main #header-section .background-uhr {
+  background-image: url(images/watch_header.jpg);
+  flex-shrink: 0;
+  height: 100%;
+  width: 30%;
+  background-size: cover;
+  background-position: bottom;
+}
+
+main #header-section .header-article .button {
+  display: inline-block;
+  border-radius: 2rem;
+  background-color: #00003f;
+  color: #fff;
+  padding: 1rem 2.5rem;
+  font-weight: bold;
+}
+
+main #header-section .header-article .button:hover {
+  background-color: #f0c631;
+  color: #00003f;
+}
