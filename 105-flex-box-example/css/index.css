@@ -6,10 +6,23 @@ main #header-section {
   background-color: #d6dce6;
 }
 
+@media screen and (max-width: 1200px) {
+  main #header-section {
+    height: 100%;
+    flex-direction: column;
+  }
+}
+
 main #header-section .header-article {
   padding-right: 50px;
   padding-left: 50px;
   width: 70%;
+}
+
+@media screen and (max-width: 1200px) {
+  main #header-section .header-article {
+    padding: 50px;
+  }
 }
 
 main #header-section .header-article h2 {
@@ -31,17 +44,30 @@ main #header-section .background-uhr {
   background-position: bottom;
 }
 
+@media screen and (max-width: 1200px) {
+  main #header-section .background-uhr {
+    width: 100%;
+  }
+}
+
 main .service-section {
   padding: 50px;
   background-color: #00003f;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   color: #fff;
   justify-content: space-around;
   gap: 25px;
   margin-top: 50px;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
+}
+
+@media screen and (max-width: 700px) {
+  main .service-section {
+    flex-direction: column;
+  }
 }
 
 main .service-section .service {
@@ -71,7 +97,7 @@ main .service-section .service:hover .icon {
 /* testimonials  */
 
 main .testimonials {
-  height: 95vh;
+  /* height: 95vh; */
   padding: 100px 50px;
   display: flex;
   align-items: center;
@@ -79,21 +105,38 @@ main .testimonials {
   gap: 50px;
 }
 
+@media screen and (max-width: 1200px) {
+  main .testimonials {
+    flex-wrap: wrap;
+  }
+}
+
 main .testimonials .testimonial-items {
   display: flex;
   flex: 1;
-  flex-direction: row;
   gap: 30px 50px;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: flex-start;
-  flex-basis: 50%;
+}
+
+@media screen and (max-width: 1200px) {
+  main .testimonials .testimonial-items {
+    flex-basis: 100%;
+  }
 }
 
 main .testimonials .testimonial-items .testimonial-item-rating {
   padding: 25px;
   border-radius: 25px;
   align-items: flex-start;
+  flex-basis: calc(50% - 25px);
+}
+
+@media screen and (max-width: 700px) {
+  main .testimonials .testimonial-items .testimonial-item-rating {
+    flex-wrap: wrap;
+    flex-basis: 100%;
+  }
 }
 
 main .testimonials .testimonial-items .testimonial-item-rating:nth-child(2n) {
@@ -106,7 +149,6 @@ main .testimonials .testimonial-items .testimonial-item-rating .quality {
 
 main .testimonials .testimonial-text {
   flex: 1;
-  flex-basis: 40%;
 }
 
 main .testimonials .testimonial-text p {
