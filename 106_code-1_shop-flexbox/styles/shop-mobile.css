@@ -33,12 +33,12 @@ h1 {
 .product-section .products .product {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 20px;
   padding: 25px;
 }
 
 .product-section .products .product img {
   height: 450px;
-  width: 450px;
+  width: 100%;
   object-fit: cover;
 }
