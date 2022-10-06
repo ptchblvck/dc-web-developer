@@ -1,0 +1,64 @@
+.header-section {
+  height: auto;
+}
+
+.header-image {
+  display: none;
+}
+
+.header-content {
+  width: initial;
+  /* flex-grow: 1; */
+}
+
+/*
+* FACTS 
+*/
+
+.facts {
+  justify-content: center;
+}
+
+.facts .fact {
+  flex-basis: calc(50% - 10px);
+  flex-grow: 0;
+}
+
+/*
+* Testimonial block  
+*/
+
+.testimonial-block {
+  gap: 50px;
+  flex-direction: column;
+}
+
+.testimonial-content {
+  align-items: center;
+  text-align: center;
+}
+
+/* 
+* Team section
+*/
+
+.team-wrapper {
+  /* justify-content: center; */
+  flex-wrap: wrap;
+  /* gap: 10px 50px; */
+}
+
+/* .team-member {
+  flex-grow: 0;
+  padding-left: 80px;
+  padding-right: 80px;
+} */
+
+/* 
+* cta 
+*/
+
+.cta {
+  width: auto;
+  margin: 0 50px;
+}

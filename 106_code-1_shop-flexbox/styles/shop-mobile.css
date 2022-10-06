@@ -1,0 +1,44 @@
+#logo {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  object-position: 100% 0;
+}
+
+h1 {
+  padding: 50px;
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000;
+}
+
+.background-dark {
+  background-color: #fff;
+  margin: 50px;
+  gap: 25px;
+}
+
+.products .product {
+  background-color: #cfcfcf;
+}
+
+.products .product h5 {
+  font-size: 1.3em;
+}
+
+.product-section .products .product {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 25px;
+}
+
+.product-section .products .product img {
+  height: 450px;
+  width: 450px;
+  object-fit: cover;
+}
