@@ -22,23 +22,27 @@ h1 {
   gap: 25px;
 }
 
-.products .product {
-  background-color: #cfcfcf;
-}
-
 .products .product h5 {
   font-size: 1.3em;
 }
 
 .product-section .products .product {
+  background-color: #cfcfcf;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  /* gap: 20px; */
   padding: 25px;
 }
 
 .product-section .products .product img {
-  height: 450px;
+  height: 250px;
   width: 100%;
   object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .products {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
