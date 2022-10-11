@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 100px;
+  /* color: #fff; */
+}
+
+p {
+  margin: 0;
+}
+
+.grid {
+  background-color: cadetblue;
+  display: grid;
+  grid-template-columns: repeat(4 1fr);
+  grid-template-rows: repeat(4 1fr);
+  grid-template-areas: "aside aside item1 item1" "aside aside item2 item3" "aside aside item4 item4" "aside aside item4 item4";
+  border: solid 1px #000;
+}
+
+.circle {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+/* .circle1 {
+  margin-top: 30px;
+  margin-left: 37%;
+} */
+
+.text {
+  margin-top: 10px;
+  background-color: #fff;
+  padding-bottom: 100px;
+}
+
+.border-1p {
+  padding-top: 30px;
+}
+
+.flex1 {
+  grid-area: aside;
+  text-align: center;
+  justify-self: center;
+}
+
+.item1 {
+  grid-area: item1;
+  border-left: 1px solid #000;
+}
+
+.item2 {
+  grid-area: item2;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.item3 {
+  grid-area: item3;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.item4 {
+  grid-area: item4;
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+}
+
+.flex2 {
+  display: grid;
+  grid-template-columns: repeat(4 1fr);
+  grid-template-areas: "links links links links" "inner-c1 inner-c2 inner-c3 inner-c4";
+  justify-content: space-evenly;
+}
+
+.inner-c1 {
+  grid-area: inner-c1;
+}
+
+.inner-c2 {
+  grid-area: inner-c2;
+}
+
+.inner-c3 {
+  grid-area: inner-c3;
+}
+
+.inner-c4 {
+  grid-area: inner-c4;
+}

@@ -1,0 +1,73 @@
+body {
+  font-size: 24px;
+  font-weight: normal;
+  margin: 100px;
+  /* color: #fff; */
+}
+
+p {
+  margin: 0;
+}
+
+/* Margin auf 0 setzen, damit die Box padding einstellungen uebernommen werden koennen */
+
+.grid {
+  background-color: cornflowerblue;
+  border: 1px solid #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "aside aside item1 item1" "aside aside item2 item3" "aside aside item4 item4" "aside aside item4 item4";
+}
+
+.circle {
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.text {
+  background-color: #fff;
+  height: 50%;
+  width: fit-content;
+}
+
+.flex1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  grid-area: aside;
+  border: solid 1px #000;
+  text-align: center;
+}
+
+.flex2 {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.border-1p {
+  border: solid 1px #000;
+  padding-top: 30px;
+  padding-bottom: 0;
+}
+
+.item1 {
+  grid-area: item1;
+}
+
+.item2 {
+  grid-area: item2;
+}
+
+.item3 {
+  grid-area: item3;
+}
+
+.item4 {
+  grid-area: item4;
+}
