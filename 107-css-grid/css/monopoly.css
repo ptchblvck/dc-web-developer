@@ -138,7 +138,6 @@ input {
 
 #monopoly:checked ~ .grid .darkblue {
   border-right: 20px solid cornflowerblue;
-  mask-border-slice: 10px;
 }
 /* 
 .grid .darkblue > p {
