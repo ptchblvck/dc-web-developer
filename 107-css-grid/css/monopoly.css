@@ -125,7 +125,7 @@ input {
 /* colors  */
 
 #monopoly:checked ~ .grid .green {
-  background: linear-gradient(0deg, 0px green 20px #000, 25px #fff);
+  background: linear-gradient(0deg, green 0px, #000 20px 25px, transparent 100%);
 }
 
 #monopoly:checked ~ .grid .orange {
