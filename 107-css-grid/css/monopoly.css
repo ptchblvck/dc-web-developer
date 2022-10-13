@@ -45,18 +45,22 @@ input {
 
 #monopoly:checked ~ .grid .boxes .text135 {
   transform: rotate(135deg);
+  padding-top: 0;
 }
 
 #monopoly:checked ~ .grid .boxes .text315 {
   transform: rotate(315deg);
+  padding-top: 0;
 }
 
 #monopoly:checked ~ .grid .boxes .text45 {
   transform: rotate(45deg);
+  padding-top: 0;
 }
 
 #monopoly:checked ~ .grid .boxes .text225 {
   transform: rotate(225deg);
+  padding-top: 0;
 }
 
 #monopoly:checked ~ .grid .boxes .text180 {
@@ -69,6 +73,10 @@ input {
 
 #monopoly:checked ~ .grid .boxes .text90 {
   transform: rotate(90deg);
+}
+
+#monopoly:checked ~ .grid .boxes p {
+  padding-top: 22px;
 }
 
 /* grid layout of boxes  */
@@ -125,19 +133,42 @@ input {
 /* colors  */
 
 #monopoly:checked ~ .grid .green {
-  background: linear-gradient(0deg, green 0px, #000 20px 25px, transparent 100%);
+  background: linear-gradient(
+    0deg,
+    green 0px 20px,
+    #000 20px 22px,
+    transparent 22px 100%
+  );
 }
 
 #monopoly:checked ~ .grid .orange {
-  border-left: 20px solid orange;
+  background: linear-gradient(
+    90deg,
+    orange 0px 20px,
+    #000 20px 22px,
+    transparent 22px 100%
+  );
+  /* border-left: 20px solid orange; */
 }
 
 #monopoly:checked ~ .grid .pink {
-  border-top: 20px solid plum;
+  background: linear-gradient(
+    180deg,
+    plum 0px 20px,
+    #000 20px 22px,
+    transparent 22px 100%
+  );
+  /* border-top: 20px solid plum; */
 }
 
 #monopoly:checked ~ .grid .darkblue {
-  border-right: 20px solid cornflowerblue;
+  background: linear-gradient(
+    270deg,
+    cornflowerblue 0px 20px,
+    #000 20px 22px,
+    transparent 22px 100%
+  );
+  /* border-right: 20px solid cornflowerblue; */
 }
 /* 
 .grid .darkblue > p {
