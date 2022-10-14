@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url(../fonts/Ubuntu-Regular.ttf), "Ubuntu-Bold";
+  src: url(../fonts/Ubuntu-Bold.ttf), "Ubuntu-Light";
+  src: url(../fonts/Ubuntu-Light.ttf), "Ubuntu-Medium";
+  src: url(../fonts/Ubuntu-Medium.ttf);
+}
+
 /* styling of main content */
 
 * {
@@ -6,9 +14,10 @@
 
 body {
   font-size: 16px;
-  margin: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
   background-color: #909090;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Ubuntu", sans-serif;
   color: lightcyan;
 }
 
@@ -27,8 +36,23 @@ a {
   border-radius: 15px;
 }
 
-h1.x-mas {
-  font-size: 6em;
+header .mainframe .christmas {
+  display: flex;
+  align-items: center;
+}
+
+header .mainframe .x-mas {
+  width: 100px;
+  height: 100%;
+}
+
+header .mainframe .christmas h1 {
+  display: inline-block;
+  margin-left: 1em;
+}
+
+header .mainframe .christmas:hover h1 {
+  color: aquamarine;
 }
 
 /* nav bar stuff */
@@ -58,9 +82,67 @@ header .mainframe .navbar ul li a:hover {
   padding: 0.5em;
 }
 
+/* navbar mobile toggle */
+
+/* code comes here pls */
+
+header .mainframe #menuToggle input {
+  visibility: hidden;
+}
+
+header .mainframe #menuToggle span {
+  visibility: hidden;
+}
+
+/* this is the section for countdown and adventrskalender heading */
+
+main .kalender {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3em;
+}
+
+main .kalender .advent {
+  font-size: 2em;
+}
+
+main .kalender a:hover .advent {
+  color: aquamarine;
+}
+
+main .kalender .countdown-header {
+  display: flex;
+  gap: 0.5rem;
+}
+
+main .kalender .countdown-header .countdown {
+  background-color: aquamarine;
+  width: 5em;
+  height: 5em;
+  text-align: center;
+  color: darkslateblue;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0.5em;
+}
+
+main .kalender .countdown-header .countdown:hover {
+  background-color: #ff7faa;
+}
+
+main .kalender .countdown-header .countdown > p {
+  font-size: 0.5em;
+  margin: 0;
+}
+
 /* calendar grid stuff */
 
 main .grid {
+  margin-bottom: 3em;
   display: grid;
   text-align: center;
   align-content: center;
@@ -75,29 +157,49 @@ main .grid {
 }
 
 main .grid > div {
-  border-radius: 10px;
+  border-radius: 0.5em;
 }
 
 /* box colors */
 
 main .grid .box-light {
-  background-color: aquamarine;
-  color: cadetblue;
+  background-color: #7fffd4;
+  color: #5f9ea0;
+}
+
+main .grid .box-light:hover {
+  background-color: #ff7faa;
+  color: #5f7ea0;
 }
 
 main .grid .box-dark {
   background-color: cadetblue;
-  color: lightcyan;
+  color: #e0ffff;
+}
+
+main .grid .box-dark:hover {
+  background-color: #5f7ea0;
+  color: #ffe0e0;
 }
 
 main .grid .box-very-light {
   background-color: lightcyan;
-  color: darkslateblue;
+  color: #483d8b;
+}
+
+main .grid .box-very-light:hover {
+  background-color: #ffe0e0;
+  color: #6f3d8b;
 }
 
 main .grid .box-very-dark {
   background-color: darkslateblue;
   color: aquamarine;
+}
+
+main .grid .box-very-dark:hover {
+  background-color: #6f3d8b;
+  color: #ff7faa;
 }
 
 /* grid areas  */
@@ -115,6 +217,10 @@ main .grid .box-very-dark {
 }
 .door4 {
   grid-area: door4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .door5 {
   grid-area: door5;
@@ -127,6 +233,10 @@ main .grid .box-very-dark {
 }
 .door8 {
   grid-area: door8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 9 to 16 */
@@ -154,12 +264,17 @@ main .grid .box-very-dark {
 }
 .door16 {
   grid-area: door16;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 17 to 24 */
 
 .door17 {
   grid-area: door17;
+  outline: 10px solid #909090;
 }
 .door18 {
   grid-area: door18;
@@ -183,25 +298,196 @@ main .grid .box-very-dark {
   grid-area: door24;
 }
 
-/* specific stuff */
+@media screen and (max-width: 900px) {
+  header .mainframe {
+    flex-direction: column;
+  }
 
-.door4 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  header .mainframe .christmas {
+    flex-direction: column;
+  }
+  header .mainframe .x-mas {
+    width: 100%;
+  }
+
+  header .mainframe h1 {
+    font-size: 3em;
+  }
+
+  header .mainframe .navbar {
+    flex-direction: column;
+  }
+
+  header .mainframe .navbar #menu li {
+    font-size: 2em;
+  }
+
+  main .kalender {
+    flex-direction: column;
+  }
+
+  main .kalender .countdown-header .countdown {
+    width: 8em;
+    height: 8em;
+  }
+
+  main .kalender .countdown-header .countdown span {
+    font-size: 2em;
+  }
+
+  main .kalender .countdown-header .countdown p {
+    font-size: 1.5em;
+  }
+
+  main .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(9 1fr);
+    grid-template-areas:
+      "door1 door2 door2 door3"
+      "door4 door5 door6 door6"
+      "door4 door7 door8 door9"
+      "door10 door11 door11 door9"
+      "door14 door13 door12 door12"
+      "door15 door16 door17 door18"
+      "door15 door19 door17 door20"
+      "door24 door21 door21 door20"
+      "door24 door23 door23 door22";
+  }
 }
 
-.door8 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+@media screen and (max-width: 400px) {
+  body {
+    margin: 0;
+  }
+  header .mainframe {
+    display: flex;
+    flex-direction: column;
+  }
 
-.door16 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  header .mainframe .navbar {
+    flex-direction: column;
+  }
+
+  header .mainframe .navbar .christmas h1 {
+    display: none;
+  }
+
+  header .mainframe .navbar a {
+    order: 99;
+  }
+
+  header .mainframe .navbar .x-mas {
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  header .mainframe .navbar #menu {
+    display: none;
+    order: 1;
+  }
+
+  header .mainframe #menuToggle {
+    display: flex;
+    flex-direction: column;
+    background-color: #483d8b;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+    padding: 1em;
+    align-items: flex-end;
+  }
+  header .mainframe #menuToggle input {
+    visibility: visible;
+    float: right;
+    display: flex;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  header .mainframe #menuToggle span {
+    visibility: visible;
+    display: flex;
+    width: 29px;
+    height: 2px;
+    margin-bottom: 5px;
+    background: aquamarine;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 5px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+      background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  }
+
+  #menuToggle span.bar2 {
+    transform-origin: 0% 0%;
+  }
+
+  #menuToggle span.bar3 {
+    transform-origin: 0% 100%;
+  }
+
+  #menuToggle input:checked ~ span.bar1 {
+    opacity: 1;
+    transform: rotate(45deg) translate(0px, -1px);
+    background: aquamarine;
+  }
+  #menuToggle input:checked ~ span.bar2 {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  #menuToggle input:checked ~ span.bar3 {
+    transform: rotate(-45deg) translate(0, -1px);
+  }
+
+  #menuToggle input:checked ~ .navbar #menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main .kalender {
+    flex-direction: column;
+  }
+
+  main .kalender .advent {
+    margin-bottom: 0.7em;
+  }
+
+  main .kalender .countdown-header .countdown {
+    margin-bottom: 2em;
+    width: 5em;
+    height: 5em;
+  }
+  main .kalender .countdown-header .countdown span {
+    font-size: 1.5em;
+  }
+
+  main .kalender .countdown-header .countdown p {
+    font-size: 1em;
+  }
+
+  main .grid {
+    /* display: grid; */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(12 1fr);
+    grid-template-areas:
+      "door1 door2"
+      "door3 door4"
+      "door5 door6"
+      "door8 door7"
+      "door9 door10"
+      "door12 door11"
+      "door13 door14"
+      "door18 door15"
+      "door17 door16"
+      "door19 door20"
+      "door22 door21"
+      "door23 door24";
+  }
 }

@@ -1,30 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/adventskalender.css" />
     <title>Adventskalender</title>
   </head>
   <body>
     <header>
       <div class="mainframe">
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span class="bar1"></span>
+          <span class="bar2"></span>
+          <span class="bar3"></span>
         <nav class="navbar">
-          <h1 class="x-mas">X-Mas</h1>
-          <ul>
+          <a href="#">
+          <div class="christmas">
+          <img class="x-mas" src="https://media.giphy.com/media/mXa95una2975hVoM0X/giphy.gif"></img>
+          <h1>x-mas</h1></div></a>
+          <ul id="menu">
             <li><a href="#"> Geschichten</a></li>
             <li><a href="#"> Wunder</a></li>
             <li><a href="#"> Preise</a></li>
           </ul>
         </nav>
+        </div>
       </div>
     </header>
     <main>
       <div class="kalender">
-        <div class="advent">Adventskalender</div>
-        <div class="countdown days"></div>
-        <div class="countdown hours"></div>
-        <div class="countdown minutes"></div>
-        <div class="countdown seconds"></div>
+        <a href="#advent">
+        <div class="advent" id="advent">Adventskalender</div>
+        </a>
+        <div class="countdown-header">
+          <div class="countdown days">
+            <span class="timer">24</span>
+            <p>Tage</p>
+          </div>
+          <div class="countdown hours">
+            <span class="timer">02</span>
+            <p>Stunden</p>
+          </div>
+          <div class="countdown minutes">
+            <span class="timer">48</span>
+            <p>Minuten</p>
+          </div>
+          <div class="countdown seconds">
+            <span class="timer">59</span>
+            <p>Sekunden</p>
+          </div>
+        </div>
       </div>
       <div class="grid" id="advents-kalender">
         <div class="surprise-box door1 box-very-light">
