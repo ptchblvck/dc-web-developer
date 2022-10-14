@@ -1,0 +1,207 @@
+/* styling of main content */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  margin: 50px;
+  background-color: #909090;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: lightcyan;
+}
+
+p {
+  margin: 0;
+  font-size: 5em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  border: solid 2px transparent;
+  padding: 0.5em;
+  border-radius: 15px;
+}
+
+h1.x-mas {
+  font-size: 6em;
+}
+
+/* nav bar stuff */
+
+header .mainframe .navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .mainframe .navbar ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .mainframe .navbar ul li {
+  font-size: 1.4em;
+  margin: 1em;
+}
+
+header .mainframe .navbar ul li a:hover {
+  background-color: darkslateblue;
+  border: solid 2px cadetblue;
+  color: aquamarine;
+  padding: 0.5em;
+}
+
+/* calendar grid stuff */
+
+main .grid {
+  display: grid;
+  text-align: center;
+  align-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 10px 10px;
+  grid-template-areas:
+    "door1 door2 door2 door3 door4 door5 door6 door6 door7"
+    "door8 door9 door10 door10 door4 door11 door11 door12 door12"
+    "door8 door13 door14 door15 door16 door17 door18 door18 door19"
+    "door21 door21 door22 door23 door16 door24 door24 door20 door20";
+}
+
+main .grid > div {
+  border-radius: 10px;
+}
+
+/* box colors */
+
+main .grid .box-light {
+  background-color: aquamarine;
+  color: cadetblue;
+}
+
+main .grid .box-dark {
+  background-color: cadetblue;
+  color: lightcyan;
+}
+
+main .grid .box-very-light {
+  background-color: lightcyan;
+  color: darkslateblue;
+}
+
+main .grid .box-very-dark {
+  background-color: darkslateblue;
+  color: aquamarine;
+}
+
+/* grid areas  */
+
+/* 1 to 8 */
+
+.door1 {
+  grid-area: door1;
+}
+.door2 {
+  grid-area: door2;
+}
+.door3 {
+  grid-area: door3;
+}
+.door4 {
+  grid-area: door4;
+}
+.door5 {
+  grid-area: door5;
+}
+.door6 {
+  grid-area: door6;
+}
+.door7 {
+  grid-area: door7;
+}
+.door8 {
+  grid-area: door8;
+}
+
+/* 9 to 16 */
+
+.door9 {
+  grid-area: door9;
+}
+.door10 {
+  grid-area: door10;
+}
+.door11 {
+  grid-area: door11;
+}
+.door12 {
+  grid-area: door12;
+}
+.door13 {
+  grid-area: door13;
+}
+.door14 {
+  grid-area: door14;
+}
+.door15 {
+  grid-area: door15;
+}
+.door16 {
+  grid-area: door16;
+}
+
+/* 17 to 24 */
+
+.door17 {
+  grid-area: door17;
+}
+.door18 {
+  grid-area: door18;
+}
+.door19 {
+  grid-area: door19;
+}
+.door20 {
+  grid-area: door20;
+}
+.door21 {
+  grid-area: door21;
+}
+.door22 {
+  grid-area: door22;
+}
+.door23 {
+  grid-area: door23;
+}
+.door24 {
+  grid-area: door24;
+}
+
+/* specific stuff */
+
+.door4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.door8 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.door16 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
