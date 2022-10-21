@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <nav class="navigation">
+      <nav class="navigation container">
         <div class="logo-navigation" id="menuToggle">
           <input type="checkbox" id="mobile-menu-button" />
           <div class="dish">
@@ -19,49 +19,115 @@
           <div class="chopstick" id="chopstick1"></div>
           <div class="chopstick" id="chopstick2"></div>
         </div>
-        <ul class="menu mobile-hidden">
-          <a href="#app-download" class="mobile-hidden">
+        <ul class="menu" id="nav-menu">
+          <a href="#app-download" class="nav-item">
             <li>App for custormers</li>
           </a>
-          <a href="#search-text" class="mobile-hidden">
+          <a href="#search-text" class="nav-item">
             <li>search now</li>
           </a>
-          <a href="#businesses" class="mobile-hidden">
+          <a href="#businesses" class="nav-item">
             <li>for businesses</li>
           </a>
-          <a href="#about" class="mobile-hidden">
+          <a href="#about" class="nav-item">
             <li>about us</li>
           </a>
-          <a href="#contact" class="mobile-hidden">
+          <a href="#contact" class="nav-item">
             <li>contact</li>
           </a>
         </ul>
-        <h1 class="logo-tag">ASIA-MAN</h1>
+        <a href="" class="logo-link"> <h1 class="logo-tag">ASIA-MAN</h1></a>
         <a href="#" class="download-link"
-          ><div class="download-icon"></div>
+          ><div class="download-link-bg"><div class="download-icon"></div></div>
           <span class="download-text mobile-hidden">Download</span></a
         >
       </nav>
       <section class="header-section">
-        <div>
-          <h2>It's always <span>time</span> for Ramen</h2>
-          <p>Order <span>now</span> from restaurants nearby</p>
+        <div class="container">
+          <div class="slogan">
+            <h2>It's always <mark>time</mark> for Ramen</h2>
+            <p>Order <mark>now</mark> from restaurants nearby</p>
+          </div>
+          <span class="ramen-icon"></span>
         </div>
-        <span class="ramen-icon"></span>
       </section>
       <section class="delivery-address">
         <div class="searchbar">
           <div class="search-text">
             <label for="search-text" class="search">Search</label>
             <span class="delivery-icon"></span
-            ><input type="text" class="search-text" id="search-text" /><span
-              class="delete-icon"
-            ></span>
+            ><input
+              type="text"
+              class="search-text"
+              id="search-location"
+              placeholder="type your location here"
+            /><span class="delete-icon"></span>
           </div>
         </div>
       </section>
     </header>
-    <main></main>
+    <main>
+      <section id="facts">
+        <div class="container">
+          <div class="fact-card">
+            <h4>6.000.000</h4>
+            <p>ordered ramen dishes</p>
+          </div>
+          <div class="fact-card">
+            <h4>500</h4>
+            <p>different flavors</p>
+          </div>
+          <div class="fact-card mobile-hidden">
+            <h4>800</h4>
+            <p>locations worldwide</p>
+          </div>
+          <div class="fact-card mobile-hidden">
+            <h4>6.000.000</h4>
+            <p>ordered ramen dishes</p>
+          </div>
+          <div class="fact-card mobile-hidden">
+            <h4>500</h4>
+            <p>different flavors</p>
+          </div>
+        </div>
+      </section>
+      <section id="features" class="container">
+        <div class="feature-card">
+          <h3>delivered in</h3>
+          <h3><mark>less than 30</mark></h3>
+          <h3>minutes</h3>
+        </div>
+        <div class="feature-card">
+          <h3>
+            <mark>+1 extra meal</mark>
+          </h3>
+          <h3>after</h3>
+          <h3><em>15 orders</em></h3>
+        </div>
+        <div class="feature-card">
+          <h3>available in</h3>
+          <h3><mark>over 62</mark></h3>
+          <h3>countries</h3>
+        </div>
+      </section>
+      <section id="dishes">
+        <div class="container">
+          <div class="dishes-text">
+            <h2>chose from one of our</h2>
+            <h2><mark>20 different</mark></h2>
+            <h2>styles of ramen</h2>
+          </div>
+          <div class="dishes-item-wrapper">
+            <a href="" class="dishes-items">spicy</a
+            ><a href="" class="dishes-items">chicken</a
+            ><a href="" class="dishes-items">vegetarian</a
+            ><a href="" class="dishes-items">miso</a
+            ><a href="" class="dishes-items">duck</a
+            ><a href="" class="dishes-more">show more</a>
+          </div>
+        </div>
+      </section>
+    </main>
     <footer></footer>
   </body>
 </html>

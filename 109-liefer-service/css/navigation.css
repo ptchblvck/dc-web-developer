@@ -1,13 +1,13 @@
 /* this is the nav section */
 
 header .navigation {
-  padding: var(--space-sm);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-primary-500);
-  margin-left: -10px;
-  margin-right: -10px;
+  background-color: var(--background-color-200);
+  padding: var(--space-sm);
+  position: sticky;
+  top: 0;
 }
 
 header .navigation .logo-navigation {
@@ -17,25 +17,49 @@ header .navigation .logo-navigation {
 }
 
 header .navigation .logo-tag {
-  color: var(--color-secondary-500);
+  color: var(--color-highlight-500);
+  letter-spacing: 0.2em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--color-secondary-500);
 }
 
-header .navigation .logo-navigation #mobile-menu-button {
+header .navigation .logo-navigation > input {
   width: 50px;
   height: 50px;
   position: absolute;
   cursor: pointer;
   opacity: 0;
-  z-index: 2;
-  left: 2px;
+  z-index: 200;
+  left: 3px;
   top: 5px;
 }
 
 header .navigation .menu {
-  display: flex;
-  flex-direction: column;
+  display: none;
+  height: 40vh;
+  width: 100%;
   list-style: none;
   padding: 0;
+  background-color: var(--background-color-200);
+  position: absolute;
+  top: 52px;
+  left: 0;
+  border: var(--color-black) 3px solid;
+  transform: translate(0 100%);
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: 99;
+}
+
+header
+  .navigation
+  .logo-navigation
+  #mobile-menu-button:checked
+  ~ header
+  .navigation
+  .menu#nav-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
 }
 
 header .navigation .logo-navigation .dish {
@@ -81,14 +105,23 @@ header .navigation .logo-navigation #chopstick2 {
   transform: rotate(-7deg) translate(0, 1px);
 }
 
-header .navigation .download-link .download-icon {
-  background-color: var(--color-secondary-500);
+header .navigation .download-link .download-link-bg {
+  width: 35px;
+  height: 35px;
+  background-color: var(--color-primary-500);
+  border-radius: 5px;
+}
+
+header .navigation .download-link .download-link-bg .download-icon {
+  background-color: transparent;
   width: 35px;
   height: 35px;
   background-image: url("../img/icons/download-96.png");
+  filter: invert(85%) sepia(27%) saturate(611%) hue-rotate(347deg)
+    brightness(101%) contrast(103%);
   background-position: center;
-  background-size: contain;
-  border-radius: 5px;
+  background-size: 60%;
+  background-repeat: no-repeat;
 }
 
 /* menu clicked states */

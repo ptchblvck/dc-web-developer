@@ -6,6 +6,7 @@
   --color-primary-500: #ef6d5b;
   --color-primary-800: #c45549;
 
+  --color-secondary-200: #fff2d1;
   --color-secondary-500: #ffde8d;
   --color-secondary-800: #b39b63;
 
@@ -32,6 +33,13 @@
   --space-xl: 50px;
   --space-xxl: 80px;
 
+  --space-section: 50px;
+
+  --border-small: 10px;
+  --border-medium: 25px;
+  --border-large: 60px;
+  --border-xlarge: 100px;
+
   --font-size-small: 12.64px;
   --font-size-default: 16px;
   --font-size-lg: 2rem;
@@ -56,9 +64,8 @@ body {
   font-size: var(--font-size-default);
   color: var(--color-black);
   background-color: var(--background-color-200);
+  text-align: center;
   margin: 0;
-  margin-left: var(--space-sm);
-  margin-right: var(--space-sm);
 }
 
 h1 {
@@ -87,12 +94,129 @@ a {
   text-decoration: none;
 }
 
+h2,
+h3,
+h4,
+p {
+  margin: 1em 0;
+}
+
+mark {
+  background-color: unset;
+  color: var(--color-complementary-500);
+}
+
+em {
+  font-style: unset;
+  color: var(--color-highlight-500);
+}
+
 /* hidden for mobile */
 
 .mobile-hidden {
   display: none;
 }
 
+/* container for content */
+
+.container {
+  /* display: flex; */
+  margin: 0 var(--space-sm);
+  /* border: 3px solid blue; */
+}
+
 /* sections */
 
 /* header section */
+
+header .header-section {
+  padding: var(--space-section) 0;
+  background-color: var(--color-primary-500);
+  height: 15em;
+}
+
+header .header-section .slogan {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header .header-section .slogan h2,
+header .header-section .slogan p {
+  color: var(--color-secondary-500);
+}
+
+header .delivery-address {
+  background-image: url("../img/asian-food-header\ 1.png");
+  background-size: cover;
+  background-position-x: -50px;
+  background-repeat: no-repeat;
+  border-bottom-left-radius: var(--space-lg);
+  border-bottom-right-radius: var(--space-lg);
+  height: 20em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .delivery-address .searchbar {
+  background-color: var(--background-color-200);
+  padding: var(--space-md);
+  height: 3em;
+  border-radius: var(--border-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* main section goes here  */
+
+main {
+  justify-content: space-between;
+  margin: 0;
+}
+
+main section:first-child {
+  background-color: var(--color-primary-500);
+}
+
+main section:first-child .container {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+}
+
+main section:first-child .fact-card {
+  color: var(--color-white);
+}
+
+/* features  */
+
+main #features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  flex: 1;
+  margin-top: var(--space-section);
+}
+
+main section:nth-child(2) .feature-card {
+  background-color: var(--color-primary-200);
+  color: var(--color-secondary-200);
+  flex-basis: 100%;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding: var(--space-md);
+  border-radius: var(--border-medium);
+}
+
+main section:nth-child(2) .feature-card > h3 {
+  margin: var(--space-sm) 0;
+}
+
+/* dishes */
+
+main #dishes {
+  margin-top: var(--space-section);
+}
