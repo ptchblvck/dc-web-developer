@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/navigation.css" />
     <link rel="stylesheet" href="css/main.css" />
     <title>Document</title>
   </head>
@@ -12,31 +13,33 @@
       <nav class="navigation">
         <div class="logo-navigation" id="menuToggle">
           <input type="checkbox" id="mobile-menu-button" />
-          <div class="dish"></div>
-          <span class="chopstick"></span>
-          <span class="chopstick"></span>
+          <div class="dish">
+            <div class="ramen-dish"></div>
+          </div>
+          <div class="chopstick" id="chopstick1"></div>
+          <div class="chopstick" id="chopstick2"></div>
         </div>
-        <ul class="menu">
-          <a href="#app-download">
+        <ul class="menu mobile-hidden">
+          <a href="#app-download" class="mobile-hidden">
             <li>App for custormers</li>
           </a>
-          <a href="#search-text">
+          <a href="#search-text" class="mobile-hidden">
             <li>search now</li>
           </a>
-          <a href="#businesses">
+          <a href="#businesses" class="mobile-hidden">
             <li>for businesses</li>
           </a>
-          <a href="#about">
+          <a href="#about" class="mobile-hidden">
             <li>about us</li>
           </a>
-          <a href="#contact">
+          <a href="#contact" class="mobile-hidden">
             <li>contact</li>
           </a>
         </ul>
         <h1 class="logo-tag">ASIA-MAN</h1>
         <a href="#" class="download-link"
-          ><span class="download-icon"></span
-          ><span class="download-text">Download</span></a
+          ><div class="download-icon"></div>
+          <span class="download-text mobile-hidden">Download</span></a
         >
       </nav>
       <section class="header-section">

@@ -1,0 +1,115 @@
+/* this is the nav section */
+
+header .navigation {
+  padding: var(--space-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-primary-500);
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+header .navigation .logo-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .navigation .logo-tag {
+  color: var(--color-secondary-500);
+}
+
+header .navigation .logo-navigation #mobile-menu-button {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  left: 2px;
+  top: 5px;
+}
+
+header .navigation .menu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+}
+
+header .navigation .logo-navigation .dish {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  border: transparent 1px var(--color-black);
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header .navigation .logo-navigation .dish .ramen-dish {
+  height: 100%;
+  border-radius: 50%;
+  background-image: url("../img/svg/ramen-icon.svg");
+  background-position-x: -9.1px;
+  background-position-y: -12.5px;
+}
+
+header .navigation .logo-navigation .chopstick {
+  display: flex;
+  width: 5px;
+  height: 45px;
+  position: relative;
+  background-color: var(--color-chopstick-inner);
+  border: solid 0.5px var(--color-chopstick-outer);
+  border-radius: 5px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+header .navigation .logo-navigation #chopstick1 {
+  position: relative;
+  transform-origin: 50% 50%;
+  transform: rotate(3deg) translate(-2px, 3px);
+}
+header .navigation .logo-navigation #chopstick2 {
+  position: relative;
+  transform-origin: 50% 50%;
+  transform: rotate(-7deg) translate(0, 1px);
+}
+
+header .navigation .download-link .download-icon {
+  background-color: var(--color-secondary-500);
+  width: 35px;
+  height: 35px;
+  background-image: url("../img/icons/download-96.png");
+  background-position: center;
+  background-size: contain;
+  border-radius: 5px;
+}
+
+/* menu clicked states */
+
+header .navigation .logo-navigation #mobile-menu-button:checked ~ #chopstick1 {
+  transform: translate(-22px) rotate(45deg);
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+header .navigation .logo-navigation #mobile-menu-button:checked ~ #chopstick2 {
+  transform: translate(-27px) rotate(-45deg);
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+header
+  .navigation
+  .logo-navigation
+  #mobile-menu-button:checked
+  ~ .dish
+  > .ramen-dish {
+  display: none;
+}
