@@ -1,23 +1,23 @@
 /* definitions */
 
 :root {
-  --color-primary-100: #ffd4d4;
-  --color-primary-200: #ffb4b4;
-  --color-primary-500: #ff9494;
-  --color-primary-800: #bf6f6f;
+  --color-primary-100: #efa4b8;
+  --color-primary-200: #e46b8c;
+  --color-primary-500: #d61c4e;
+  --color-primary-800: #8b1233;
 
-  --color-secondary-500: #ffde8d;
-  --color-secondary-800: #bfa76a;
+  --color-secondary-500: #feb139;
+  --color-secondary-800: #a57325;
 
-  --color-highlight-200: #9fbaf2;
-  --color-highlight-500: #6c95eb;
+  --color-highlight-200: #5f6789;
+  --color-highlight-500: #293462;
 
-  --color-complementary-200: #d4ffe0;
-  --color-complementary-500: #94ffb2;
-  --color-complementary-800: #6fbf86;
+  --color-complementary-200: #8eebd2;
+  --color-complementary-500: #1cd6a4;
+  --color-complementary-800: #149673;
 
-  --background-color-200: #fff5e4;
-  --background-color-500: #ffe2b1;
+  --background-color-200: #f7eed5;
+  --background-color-500: #e8d08e;
 
   --color-white: #fffdf8;
   --color-black: #262522;
