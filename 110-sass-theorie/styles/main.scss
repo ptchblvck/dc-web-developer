@@ -1,0 +1,23 @@
+@use "abstracts" as abs;
+@use "base" as b;
+
+body {
+  background-color: abs.$color-primary;
+  font-family: b.$font-default;
+  color: abs.$color-secondary;
+}
+
+h1 {
+  @include abs.border-default();
+}
+
+@each $name, $rgb in abs.$colors-difficulties {
+  .#{$name} {
+    @include abs.border-default($rgb, ridge);
+    color: darken($rgb, 30%);
+    // border: 3px solid $rgb;
+    padding: 5px 10px;
+    display: inline;
+    background-color: lighten($rgb, 20%);
+  }
+}
