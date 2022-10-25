@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+button {
+  width: 100px;
+  height: 50px;
+  padding: 15px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  transition: 400ms ease;
+}
+
+.container {
+  background-color: gray;
+  width: 30vw;
+  height: 30vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.green-dark {
+  background-color: green;
+  color: white;
+}
+
+.green-dark:hover {
+  background-color: white;
+  color: green;
+  border-color: green;
+}
+
+.green-light {
+  background-color: white;
+  color: green;
+  border-color: green;
+}
+
+.green-light:hover {
+  background-color: green;
+  color: white;
+  border-color: transparent;
+}
+
+.blue-dark {
+  background-color: blue;
+  color: white;
+}
+
+.blue-dark:hover {
+  background-color: white;
+  color: blue;
+  border-color: blue;
+}
+
+.blue-light {
+  background-color: white;
+  color: blue;
+  border-color: blue;
+}
+
+.blue-light:hover {
+  background-color: blue;
+  color: white;
+  border-color: transparent;
+}
+
+.red-dark {
+  background-color: red;
+  color: white;
+}
+
+.red-dark:hover {
+  background-color: white;
+  color: red;
+  border-color: red;
+}
+
+.red-light {
+  background-color: white;
+  color: red;
+  border-color: red;
+}
+
+.red-light:hover {
+  background-color: red;
+  color: white;
+  border-color: transparent;
+}
