@@ -1,0 +1,72 @@
+@media screen and (min-width: 768px) {
+  .container {
+    margin: 0 var(--space-xxl);
+  }
+
+  header .header-section {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  header .header-section .slogan > h2 {
+    font-size: 4em;
+  }
+
+  header .header-section .slogan > p {
+    font-size: 2em;
+  }
+
+  @keyframes animate {
+    0%,
+    100% {
+      clip-path: polygon(
+        0% 45%,
+        16% 44%,
+        33% 50%,
+        54% 60%,
+        70% 61%,
+        84% 59%,
+        100% 52%,
+        100% 100%,
+        0% 100%
+      );
+    }
+
+    50% {
+      clip-path: polygon(
+        0% 60%,
+        15% 65%,
+        34% 66%,
+        51% 62%,
+        67% 50%,
+        84% 45%,
+        100% 46%,
+        100% 100%,
+        0% 100%
+      );
+    }
+  }
+
+  body > header > section.header-section > .container {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    overflow: hidden;
+  }
+
+  body > header > section.header-section > div > div.slogan {
+    grid-area: 1 / 1;
+  }
+
+  body > header > section.header-section > div > div.slogan.mobile-hidden {
+    display: flex;
+    filter: hue-rotate(321deg);
+    grid-area: 1 / 1;
+  }
+
+  body > header > section.header-section > div > div.slogan.mobile-hidden > * {
+    animation: animate 4s ease-in-out infinite;
+  }
+}

@@ -8,6 +8,32 @@ header .navigation {
   padding: var(--space-sm);
   position: sticky;
   top: 0;
+  z-index: 80;
+}
+
+@keyframes left-right-shake {
+  from {
+    transform: translate(0, 0);
+    transform: scale(1);
+  }
+  4.1667% {
+    transform: translate(3px, 0);
+  }
+  8.3333% {
+    transform: translate(0px, 0);
+    transform: scale(1.1);
+  }
+  12.5% {
+    transform: translate(-3px, 0);
+  }
+  16.6667% {
+    transform: translate(0, 0);
+    transform: scale(1);
+  }
+  to {
+    transform: translate(0, 0);
+    transform: scale();
+  }
 }
 
 header .navigation .logo-navigation {
@@ -47,8 +73,10 @@ header .navigation .menu {
   z-index: 99;
   border-bottom-right-radius: var(--border-radius-medium);
   border-bottom-left-radius: var(--border-radius-medium);
-  transform: translate(0 100%);
-  transition: transform 2s cubic-bezier(0.075, 0.82, 0.165, 1), ease;
+  transform: translate(0, 100%);
+  transition: transform 6s cubic-bezier(0.075, 0.82, 0.165, 1), ease;
+  -webkit-transform: translate(0, 100%);
+  transition: -webkit-transform 6s cubic-bezier(0.075, 0.82, 0.165, 1), ease;
 }
 
 header .navigation .menu a {
@@ -61,7 +89,8 @@ header .navigation .menu a:hover {
 }
 
 header .navigation .menu a > li {
-  padding: var(--space-sm) 0;
+  padding-block: var(--space-sm);
+  border-bottom: solid transparent 3px;
 }
 
 header
@@ -72,6 +101,8 @@ header
   flex-direction: column;
   gap: var(--space-xs);
   justify-content: center;
+  transform: translate(0, 0);
+  -webkit-transform: translate(0, 0);
 }
 
 header .navigation .logo-navigation .dish {

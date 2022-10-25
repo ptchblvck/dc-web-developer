@@ -33,7 +33,7 @@
   --space-md: 30px;
   --space-lg: 40px;
   --space-xl: 50px;
-  --space-xxl: 80px;
+  --space-xxl: 180px;
 
   --space-section: 50px;
 
@@ -142,6 +142,10 @@ header .header-section .slogan {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+body > header > section.header-section > div > div.slogan.mobile-hidden {
+  display: none;
 }
 
 header .header-section .slogan h2,

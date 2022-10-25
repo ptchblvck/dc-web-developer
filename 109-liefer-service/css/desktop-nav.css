@@ -1,0 +1,48 @@
+@media screen and (min-width: 768px) {
+  #nav-menu > a > li {
+    padding-block: var(--space-xs);
+    transition: 0.6s;
+  }
+
+  header .navigation .logo-navigation {
+    animation: left-right-shake 5s ease-in-out 10s infinite alternate;
+  }
+
+  header
+    .navigation
+    .logo-navigation:has(#mobile-menu-button:checked)
+    ~ #nav-menu {
+    flex-direction: row;
+    padding-inline: var(--space-sm);
+  }
+  header
+    .navigation
+    .logo-navigation:has(#mobile-menu-button:checked)
+    ~ #nav-menu
+    > a {
+    padding-inline: var(--space-xs);
+  }
+
+  header .navigation .logo-navigation #mobile-menu-button:checked {
+    animation-play-state: paused;
+  }
+
+  #mobile-menu-button {
+    left: -9px;
+    top: -5px;
+  }
+
+  #nav-menu > a:hover > li {
+    border-bottom: solid 3px var(--color-primary-500);
+  }
+
+  header .navigation .menu {
+    display: flex;
+    gap: 15px;
+    position: relative;
+    height: auto;
+    top: auto;
+    width: auto;
+    left: auto;
+  }
+}
