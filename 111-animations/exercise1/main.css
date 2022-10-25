@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+/* body {
+  background-color: red;
+} */
+
+.parent {
+  background-color: lightslategrey;
+  height: 100vh;
+  width: 100vh;
+  opacity: 0.5;
+  transition: opacity 1s;
+}
+
+.child {
+  background-color: orangered;
+  height: 50vh;
+  width: 50vh;
+  color: black;
+  display: grid;
+  place-items: center;
+  font-size: 44px;
+
+  transition: transform 1s;
+}
+
+.parent:hover > .child {
+  transform: translate(50vh, 50vh);
+}
+
+.parent:hover {
+  opacity: 1;
+}

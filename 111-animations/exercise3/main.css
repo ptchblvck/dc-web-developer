@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+h2 {
+  margin: 250px;
+}
+
+p {
+  text-align: left;
+}
+
+.color-box {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  transition: all 1s;
+}
+
+.container {
+  display: flex;
+  width: 50vw;
+  height: 50vh;
+  flex-direction: column;
+  position: relative;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.yellow {
+  background-color: yellow;
+  transform: translate(480px, 120px);
+  transform-origin: right top;
+}
+.red {
+  background-color: red;
+  transform: translate(330px, 120px);
+  transform-origin: left top;
+}
+.green {
+  background-color: green;
+  transform: translate(480px, 270px);
+  transform-origin: right bottom;
+}
+.blue {
+  background-color: blue;
+  transform: translate(330px, 270px);
+  transform-origin: left bottom;
+}
+
+.container:hover .wrapper > .yellow {
+  transform: translate(480px, 120px) rotate(-90deg);
+}
+.container:hover .wrapper > .red {
+  transform: translate(330px, 120px) rotate(90deg);
+}
+.container:hover .wrapper > .green {
+  transform: translate(480px, 270px) rotate(90deg);
+}
+.container:hover .wrapper > .blue {
+  transform: translate(330px, 270px) rotate(-90deg);
+}

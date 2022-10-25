@@ -1,0 +1,173 @@
+/* this is the nav section */
+
+header .navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color-200);
+  padding: var(--space-sm);
+  position: sticky;
+  top: 0;
+}
+
+header .navigation .logo-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .navigation .logo-tag {
+  color: var(--color-highlight-500);
+  letter-spacing: 0.2em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--color-secondary-500);
+}
+
+header .navigation .logo-navigation > input {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 200;
+  left: 11px;
+  top: 13px;
+}
+
+header .navigation .menu {
+  display: none;
+  height: 50vh;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  background-color: var(--background-color-200);
+  position: absolute;
+  top: 65px;
+  left: 0;
+  z-index: 99;
+  border-bottom-right-radius: var(--border-radius-medium);
+  border-bottom-left-radius: var(--border-radius-medium);
+  transform: translate(0 100%);
+  transition: transform 2s cubic-bezier(0.075, 0.82, 0.165, 1), ease;
+}
+
+header .navigation .menu a {
+  color: var(--color-primary-500);
+  opacity: 0.5;
+}
+
+header .navigation .menu a:hover {
+  opacity: 1;
+}
+
+header .navigation .menu a > li {
+  padding: var(--space-sm) 0;
+}
+
+header
+  .navigation
+  .logo-navigation:has(#mobile-menu-button:checked)
+  ~ #nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  justify-content: center;
+}
+
+header .navigation .logo-navigation .dish {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  border: transparent 1px var(--color-black);
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header .navigation .logo-navigation .dish .ramen-dish {
+  height: 100%;
+  border-radius: 50%;
+  background-image: url("../img/svg/ramen-icon.svg");
+  background-position-x: -9.1px;
+  background-position-y: -12.5px;
+  transition-property: all;
+  transition-duration: 0.7s;
+  transition-timing-function: ease;
+}
+
+header .navigation .logo-navigation .chopstick {
+  display: flex;
+  width: 5px;
+  height: 45px;
+  position: relative;
+  background-color: var(--color-chopstick-inner);
+  border: solid 0.5px var(--color-chopstick-outer);
+  border-radius: 5px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+header .navigation .logo-navigation #chopstick1 {
+  position: relative;
+  transform-origin: 50% 50%;
+  transform: rotate(3deg) translate(-2px, 3px);
+}
+header .navigation .logo-navigation #chopstick2 {
+  position: relative;
+  transform-origin: 50% 50%;
+  transform: rotate(-7deg) translate(0, 1px);
+}
+
+header .navigation .download-link .download-link-bg {
+  width: 35px;
+  height: 35px;
+  background-color: var(--color-primary-500);
+  border-radius: 5px;
+}
+
+header .navigation .download-link .download-link-bg .download-icon {
+  background-color: transparent;
+  width: 35px;
+  height: 35px;
+  background-image: url("../img/icons/download-96.png");
+  filter: invert(85%) sepia(27%) saturate(611%) hue-rotate(347deg)
+    brightness(101%) contrast(103%);
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+}
+
+/* menu clicked states */
+
+header .navigation .logo-navigation #mobile-menu-button:checked ~ #chopstick1 {
+  transform: translate(-22px) rotate(45deg);
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+header .navigation .logo-navigation #mobile-menu-button:checked ~ #chopstick2 {
+  transform: translate(-27px) rotate(-45deg);
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+header
+  .navigation
+  .logo-navigation
+  #mobile-menu-button:checked
+  ~ .dish
+  > .ramen-dish {
+  display: none;
+}
+
+header .navigation .logo-navigation #mobile-menubutton:checked ~ .dish::before {
+  opacity: 0;
+  animation: ball 1.5s linear infinite;
+  content: " ";
+  border: 2px solid var(--color-chopstick-outer);
+  display: block;
+  position: relative;
+  top: 0.25px;
+}

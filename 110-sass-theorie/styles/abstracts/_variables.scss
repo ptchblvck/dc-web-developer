@@ -1,0 +1,23 @@
+$color-primary: #c3ff99;
+
+$color-gradient-prime: #e0d98c;
+
+$color-secondary: #ec7272;
+$color-highlighted: #f7a76c;
+
+$border-styles: "solid", "dashed", "dotted", "groove", "ridge";
+$border-sizes: (
+  "xs": 4px,
+  "sm": 8px,
+  "md": 16px,
+  "lg": 20px,
+);
+
+$colors-difficulties: (
+  "easy": rgb(255, 223, 93),
+  "medium": rgb(255, 187, 0),
+  "hard": rgb(255, 128, 0),
+);
+
+$color-primary-800: darken($color-primary, 30%);
+// $color

@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url(../../fonts/Ubuntu-Regular.ttf), "Ubuntu-Bold";
+  src: url(../../fonts/Ubuntu-Bold.ttf), "Ubuntu-Light";
+  src: url(../../fonts/Ubuntu-Light.ttf), "Ubuntu-Medium";
+  src: url(../../fonts/Ubuntu-Medium.ttf);
+}
+body {
+  background-color: #c3ff99;
+  font-family: "Ubuntu", sans-serif;
+  color: #ec7272;
+}
+
+h1 {
+  border: hotpink dotted 4px;
+}
+
+.easy {
+  border: rgb(255, 223, 93) ridge 4px;
+  color: #c39c00;
+  padding: 5px 10px;
+  display: inline;
+  background-color: #fff3c3;
+}
+
+.medium {
+  border: rgb(255, 187, 0) ridge 4px;
+  color: #664b00;
+  padding: 5px 10px;
+  display: inline;
+  background-color: #ffd666;
+}
+
+.hard {
+  border: rgb(255, 128, 0) ridge 4px;
+  color: #663300;
+  padding: 5px 10px;
+  display: inline;
+  background-color: #ffb366;
+}
+
+/*# sourceMappingURL=main.css.map */
