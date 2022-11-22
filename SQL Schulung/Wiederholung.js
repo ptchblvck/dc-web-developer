@@ -33,8 +33,7 @@ FRAGEN:
 
 Wer hat die Datenbanken-SQL Sprache entwickelt?  ---- Antwort: IBM
 
-Was war die erste Datenbank?
+Was war die erste Datenbank? Lochkartensystem 1870 bei Volkszaehlung in America -> auswertung dauerte 
+mehr als 10 jahre.. -> elektronische Datenbank CODASYL -> pointer zu physischen speicheradressen, relationsbasierend 1970
 
-Was ist eine Subabfrage? Wie sieht eine Subabfrage aus?
-
-
+Was ist eine Subabfrage? Wie sieht eine Subabfrage aus? query in query. Select in select. */
