@@ -166,9 +166,9 @@ course.lessons = [
 
 course.addLesson = function (title, units, trainer) {
   this.lessons.push({
-    title: title,
-    units: units,
-    trainer: trainer,
+    title,
+    units,
+    trainer,
   });
   console.log(this.lessons);
 };
@@ -176,7 +176,79 @@ course.addLesson = function (title, units, trainer) {
 // Exercise 6
 
 course.countUnits = function () {
-  return this.lessons.forEach((el) => {
-    return el.units;
-  });
+  let unitSum = [];
+  for (let i = 0; i < this.lessons.length; i++) {
+    unitSum.push(this.lessons[i]["units"]);
+  }
+  return sumUnits(unitSum);
 };
+
+function sumUnits(arr) {
+  let sumUnit = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    sumUnit += arr[i];
+  }
+  return sumUnit;
+}
+
+// Exercise 7 & 8
+
+course.enrollStudent = function () {
+  let newStudent = prompt("Wie heisst der Teilnehmer?");
+  if (newStudent.length == 0) {
+    alert("Es wurde kein Name eingegeben!");
+  } else {
+    if (this.students.length < 9) {
+      this.students.push(newStudent);
+      alert("Es sind derzeit " + this.students + " im Kurs.");
+    } else {
+      alert("Kurs bereits voll!");
+    }
+  }
+};
+
+// Exercise 1
+
+let arrayOne = [];
+let arrayTwo = new Array();
+
+// Exercise 2
+
+let todoList = ["Bad Putzen", "Einkaufen"];
+
+// Exericse 3
+
+todoList.push("Rasen maehen");
+
+// Exercise 4
+
+todoList.unshift("Sport Machen");
+
+// Exercise 5
+
+todoList.splice(2, 0, "Garage streichen", "Rollrasen verlegen", "Klo putzen");
+
+// Exercise 6
+
+todoList.pop();
+
+// Exercise 7
+
+todoList.shift();
+
+// Exercise 8
+
+todoList.splice(1, 2);
+
+// Exercise 9
+
+let todoListNew = todoList.slice(1, todoList.length);
+
+// Exercise 10
+
+let names = ["Klaus", "Xaver", "Peter", "Andreas"];
+
+// Exercise 11
+
+let namesReverse = names.reverse();
+let nameAsString = names.toString();
