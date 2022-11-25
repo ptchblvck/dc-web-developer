@@ -252,3 +252,257 @@ let names = ["Klaus", "Xaver", "Peter", "Andreas"];
 
 let namesReverse = names.reverse();
 let nameAsString = names.toString();
+
+// Exercise 12
+
+names.forEach((element) => {
+  console.log(element);
+});
+
+// Exercise 13
+
+function sayHello() {
+  names.forEach((el) => {
+    console.log("Hallo " + el);
+  });
+}
+
+// Exercise 14
+console.log(names.sort());
+
+// Exercise 15
+
+let numbers = [2, 45, 3, 67, 34, 567, 34, 345, 123];
+
+let lN = 0;
+numbers.forEach((e) => {
+  if (e > lN) {
+    lN = e;
+  }
+});
+console.log(lN);
+
+let laN = 0;
+numbers.forEach((e) => {
+  e > laN ? (laN = e) : (laN = laN);
+});
+console.log(laN);
+
+function biggestNumber() {
+  numbers.sort((a, b) => a - b);
+  return numbers[numbers.length - 1];
+}
+
+// Exercise 16
+
+function sortNumbersBigToSmall() {
+  return numbers.sort((a, b) => b - a);
+}
+
+// Exercise 17
+
+let books = [
+  { author: "Bill Gates", title: "The Road Ahead", bookId: 1254 },
+  { author: "Steve Jobs", title: "Walter Isaacson", bookId: 4264 },
+  {
+    author: "Suzanne Collins",
+    title: "Mockingjay: The Final Book of The Hunger Games",
+    bookId: 3245,
+  },
+];
+
+function sortByBookTitle() {
+  books.sort((a, b) => {
+    return a["title"].localeCompare(b["title"]);
+  });
+  return books;
+}
+
+// Exercise 18
+
+/* Plattenladen mit 3 lieblingsinterpreten im Array.
+pro interpret neben name drei alben mit albumtitel und erscheinungsjahr */
+
+let favouriteArtists = [
+  {
+    artist: "We Came A Romans",
+    albums: [
+      {
+        title: "To Plant A Seed",
+        year: 2011,
+      },
+      {
+        title: "Cold Like War",
+        year: 2017,
+      },
+      {
+        title: "Darkbloom",
+        year: 2022,
+      },
+    ],
+  },
+  {
+    artist: "I See Stars",
+    albums: [
+      {
+        title: "Digital Renegade",
+        year: 2012,
+      },
+      {
+        title: "New Demons",
+        year: 2013,
+      },
+      {
+        title: "Treehouse",
+        year: 2016,
+      },
+    ],
+  },
+  {
+    artist: "Nekrogoblikon",
+    albums: [
+      {
+        title: "Heavy Meta",
+        year: 2015,
+      },
+      {
+        title: "Welcome To Bonkers",
+        year: 2018,
+      },
+      {
+        title: "The Fundamental Slimes and Humours",
+        year: 2022,
+      },
+    ],
+  },
+];
+
+// function with for loop
+
+function showArtists() {
+  for (let i = 0; i < favouriteArtists.length; i++) {
+    const artistAlbum = favouriteArtists[i].albums;
+    for (let j = 0; j < artistAlbum.length; j++) {
+      console.log(
+        artistAlbum[j].title +
+          " from " +
+          favouriteArtists[i].artist +
+          " was released in " +
+          artistAlbum[j].year +
+          "."
+      );
+    }
+  }
+}
+
+// function with foreach loop
+
+function artistIteration() {
+  favouriteArtists.forEach((artist) => {
+    artist.albums.forEach((album) => {
+      console.log(
+        album.title + " by " + artist.artist + " was released in " + album.year
+      );
+    });
+  });
+}
+
+// Exercise 19
+
+let arrayNumberOne = [1, 2, 3];
+let arrayNumberTwo = [1, 2, 3];
+let arrayNumberThree = [4, 5, 6];
+
+function checkForArraySimilarity(arr1, arr2) {
+  if (arr1.length != arr2.length) {
+    return false;
+  }
+  if (JSON.stringify(arr1) == JSON.stringify(arr2)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// Exercise 20
+
+function multiplyByThree(arr) {
+  let resultArray = [];
+  arr.forEach((element) => {
+    resultArray.push(element * 3);
+  });
+  return resultArray;
+}
+
+function multiplyByThreeWithMap(arr) {
+  let newArrayMap = [];
+  newArrayMap = arr.map((number) => {
+    number * 3;
+  });
+  return newArrayMap;
+}
+
+// Exercise 21
+
+let nums = [11, 22, 33, 46, 75, 86, 97, 98];
+
+function squareNums() {
+  let newArray = [];
+  nums.forEach((e) => {
+    if (e % 2 == 0) {
+      newArray.push(e * e);
+    }
+  });
+  let newArraySum = 0;
+  newArray.forEach((a) => {
+    newArraySum += a;
+  });
+  return newArraySum;
+}
+
+// Exercise 22
+
+let strings = ["avengers", "captain america", "iron man", "black panther"];
+
+function uppercaseMovies() {
+  let uppercaseStrings = [];
+  strings.forEach((element) => {
+    uppercaseStrings.push(element.toLocaleUpperCase());
+  });
+  return uppercaseStrings;
+}
+
+// Exercise 23
+
+function milesArray(arrayNumbers) {
+  let resultMiles = 0;
+  let arrayKm = [];
+  arrayNumbers.forEach((aN) => {
+    resultMiles += aN;
+    arrayKm.push(aN * 1.6);
+  });
+  let resultKm = 0;
+  arrayKm.forEach((allN) => {
+    resultKm += allN;
+  });
+  console.log(
+    "The whole journey in miles is " +
+      resultMiles +
+      " and " +
+      resultKm +
+      " in km."
+  );
+}
+
+// Bonus 11 without reverse
+
+function reverseArray() {
+  let namesLength = names.length;
+  let newNameArray = [];
+  let endName;
+  for (let i = 0; i < namesLength; i++) {
+    endName = names.pop();
+    newNameArray.push(endName);
+  }
+  return newNameArray;
+}
