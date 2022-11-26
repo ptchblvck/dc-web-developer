@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Cristiano Ronaldo",
+    "height": 172,
+    "mass": 77,
+    "eye_color": "blue",
+    "gender": "male"
+  },
+  {
+    "name": "Lionel Messi",
+    "height": 202,
+    "mass": 136,
+    "eye_color": "yellow",
+    "gender": "male"
+  },
+  {
+    "name": "Alex Morgan",
+    "height": 150,
+    "mass": 49,
+    "eye_color": "brown",
+    "gender": "female"
+  },
+  {
+    "name": "David Alaba",
+    "height": 188,
+    "mass": 84,
+    "eye_color": "blue",
+    "gender": "male"
+  }
+]
