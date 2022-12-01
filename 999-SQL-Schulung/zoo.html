@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="zoo.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="zookeeper container">
+      <h1>Zoos in Germany</h1>
+      <input
+        type="button"
+        value="load zookeepers"
+        class="load-zoos"
+        onclick="loadZoos()"
+      />
+      <form action="" id="zookeeper">
+        <input
+          type="text"
+          name="socialsecurity"
+          id="socialsecurity"
+          placeholder="Social Security Number"
+        />
+        <input type="text" name="name" id="name" placeholder="Name" />
+        <input type="text" name="address" id="address" placeholder="Address" />
+        <input type="text" name="zooIDfk" id="zooIDfk" placeholder="Zoo ID" />
+      </form>
+      <input
+        type="submit"
+        value="add new zookeeper"
+        id="sub-btn"
+        onclick="addZooKeeper()"
+      />
+
+      <div id="data"></div>
+    </div>
+
+    <script>
+      async function loadZoos() {
+        const response = await fetch("http://127.0.0.1:3000/zookeeper/");
+        const json = await response.json();
+        updateTable(json);
+      }
+
+      function addZooKeeper(secnr, name, address, zooId) {
+        zooKeeper.socialsecuritynr =
+          document.getElementById("socialsecurity").value;
+        zooKeeper.name = document.getElementById("name").value;
+        zooKeeper.address = document.getElementById("address").value;
+        zooKeeper.zooID_fk = document.getElementById("zooIDfk").value;
+      }
+
+      async function addZooKeeperToSql() {
+        const response = await fetch("http://127.0.0.1:3000/addkeeper/");
+        const json = await response.json();
+        updateTable(json);
+      }
+
+      async function updateTable(json) {
+        let tableE = document.createElement("table");
+        tableE.classList.add("zookeeper-table");
+        {
+          let trE = document.createElement("tr");
+          json.cells.forEach((element) => {
+            let thE = document.createElement("th");
+            thE.innerText = element.name;
+            trE.appendChild(thE);
+          });
+          tableE.appendChild(trE);
+        }
+
+        json.results.forEach((element) => {
+          let trE = document.createElement("tr");
+          for (const property in element) {
+            let thE = document.createElement("th");
+            thE.innerText = element[property];
+            trE.appendChild(thE);
+          }
+          tableE.appendChild(trE);
+        });
+
+        let dataRoot = document.getElementById("data");
+        dataRoot.innerHTML = "";
+        dataRoot.appendChild(tableE);
+      }
+    </script>
+  </body>
+</html>

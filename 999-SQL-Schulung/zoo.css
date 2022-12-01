@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 25%;
+}
+
+.zookeeper {
+  align-items: center;
+}
+
+.load-zoos {
+  width: 120px;
+  background-color: slateblue;
+  color: aquamarine;
+  border-color: slategray;
+  margin: 5px;
+  border-radius: 3px;
+}
+
+#sub-btn {
+  margin-block: 25px;
+  background-color: slategray;
+  border-color: darkslategray;
+  color: #555;
+  border-radius: 3px;
+}
+#sub-btn:hover {
+  background-color: slateblue;
+  border-color: slategray;
+  color: aquamarine;
+}
+
+#data {
+  align-self: center;
+}
+
+.zookeeper-table {
+  margin-top: 10px;
+  background-color: slategray;
+  color: gold;
+}
