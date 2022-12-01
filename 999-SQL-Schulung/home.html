@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Cities</title>
+  </head>
+  <body>
+    <p>    
+        <h1><span>Cities in Austria</span> <input type="button" value="Load Österreich" onclick="loadData()"></h1>
+        <h1><span>Cities in ...</span> 
+          <select name="Land" id="land">
+            <option value="A">Österreich</option>
+            <option value="D">Deutschland</option>
+            <option value="CH">Schweiz</option>
+          </select>
+          <input type="button" value="Load" onclick="loadData2()"></h1>
+
+    </p>
+    
+    <div id="data"></div>
+
+
+    <script>
+
+      async function loadData2(){
+        let land = document.getElementById('land').value
+
+        const response = await fetch('http://127.0.0.1:3000/conditional?land=' + land)
+        const json = await response.json();
+        updateTable(json)        
+      }
+
+
+      async function loadData(){
+        const response = await fetch('http://127.0.0.1:3000/unconditional/')
+        const json = await response.json();
+        updateTable(json)
+      }
+
+      async function updateTable(json){
+        let tableE = document.createElement('table')
+        {
+          let trE = document.createElement('tr')
+          json.fields.forEach(element => {
+            let thE = document.createElement('th')
+            thE.innerText = element.name
+            trE.appendChild(thE)
+        });
+        tableE.appendChild(trE)
+        }
+
+        json.results.forEach(element => {
+          let trE = document.createElement('tr')
+          for (const property in element) {
+            let thE = document.createElement('th')
+            thE.innerText = element[property]
+            trE.appendChild(thE)
+          }
+          tableE.appendChild(trE)
+        });
+
+        let dataRoot = document.getElementById('data')
+        dataRoot.innerHTML = ''
+        dataRoot.appendChild(tableE)        
+      }
+    </script>
+  </body>
+</html>

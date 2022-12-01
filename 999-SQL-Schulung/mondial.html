@@ -1,0 +1,36 @@
+<html>
+<head>
+  <title>Mondial</title>
+</head>
+
+<body>
+  <input type="text" name="cityName" id="cityName">
+  <input type="button" value="Insert" onclick="addNewCity()">
+  <div id="root">
+    <div class="city">
+      <div class="country">A</div>
+      <div class="name">Bregenz</div>
+      <div class="population">24000</div>
+    </div>
+  </div>
+
+  <script>
+    function addNewCity(){
+      let newName = document.getElementById("cityName").value;
+
+      let rootElement = document.getElementById('root')
+
+      let cityDiv = document.createElement('div')
+      cityDiv.classList.add('city')
+
+      let nameDiv = document.createElement('div')
+      nameDiv.classList.add('name')
+      nameDiv.innerText = newName
+      cityDiv.appendChild(nameDiv)
+
+      rootElement.appendChild(cityDiv)
+
+    }
+  </script>
+</body>
+</html>
