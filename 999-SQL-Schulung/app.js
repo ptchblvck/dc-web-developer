@@ -6,9 +6,10 @@ require("dotenv").config({ path: ".env" });
 // require("dotenv").config();
 // console.log(process.env); // remove this after you've confirmed it is working
 
+// removed the mariadb stuff - not working on linux for now
+
 const app = express();
 const port = 3000;
-
 app.use(cors());
 
 // create the connection to database
