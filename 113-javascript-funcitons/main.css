@@ -1,13 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+h1 {
+  margin-top: 15%;
+  font-size: 28px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  color: #b7db35;
+  -webkit-text-stroke: 1px;
+  -webkit-text-stroke-color: #164670;
+}
+
 .container {
-  width: 300px;
+  background: url(https://images.unsplash.com/photo-1492892132812-a00a8b245c45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 700px;
+  height: 500px;
   display: flex;
   flex-direction: column;
+}
+
+form {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+textarea {
+  resize: none;
+  height: 100px;
+  width: 170.5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+}
+
+textarea:focus-visible {
+  outline-color: #164670;
+}
+
+input:focus-visible {
+  outline-color: #164670;
 }
 
 #email::placeholder {
@@ -15,5 +56,19 @@ body {
 }
 
 #submit {
-  display: inline-block;
+  width: min-content;
+}
+
+#message {
+  display: none;
+  color: white;
+  width: 360px;
+  background-color: crimson;
+  padding: 20px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
