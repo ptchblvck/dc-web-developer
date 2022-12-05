@@ -97,14 +97,16 @@ function verifyQuestion() {
   }
   throw "question must contain at least 25 characters!";
 }
-
 // Email verification with only allowing true emails
 
 function verifyEmail(mail) {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+    email.classList.remove("wrong-input-entry");
     console.log("Email entered correctly!");
     return true;
   }
+  email.classList.add("wrong-input-entry");
+  email.focus();
   throw "email address invalid!";
 }
 
@@ -112,24 +114,32 @@ function verifyEmail(mail) {
 
 function verifyPassword() {
   let password = document.getElementById("password").value;
+  passwd.classList.remove("wrong-input-entry");
   if (password == "") {
     message.innerHTML = "**Fill in a Password please!";
     message.style.display = "block";
+    passwd.classList.add("wrong-input-entry");
+    passwd.focus();
     throw "fill in a password!";
   }
 
   if (password.length < 8) {
     message.innerHTML = "**Password length must be at least 8 characters!";
     message.style.display = "block";
+    passwd.classList.add("wrong-input-entry");
+    passwd.focus();
     throw "password length too short!";
   }
 
   if (password.length > 16) {
     message.innerHTML = "**Password length must not exceed 16 characters!";
     message.style.display = "block";
+    passwd.classList.add("wrong-input-entry");
+    passwd.focus();
     throw "password lenght exceeded!";
   } else {
     console.log("Password accepted!");
+    message.style.display = "none";
   }
 }
 
@@ -137,11 +147,13 @@ function verifyPassword() {
 
 function verifyUsername(username) {
   let usernameRegex = /^[a-zA-Z0-9]+$/;
-  if (usernameRegex.test(username)) {
-    console.log("Username entered correctly!");
-    return true;
+  if (!usernameRegex.test(username)) {
+    document.getElementById("username").classList.add("wrong-input-entry");
+    document.getElementById("username").focus();
+    throw "Invalid username!";
   }
-  throw "Invalid username!";
+  console.log("Username entered correctly!");
+  return true;
 }
 
 // validation function
