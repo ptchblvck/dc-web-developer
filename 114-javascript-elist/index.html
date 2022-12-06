@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Listeners</title>
+  </head>
+  <body id="body">
+    <div id="follower"></div>
+  </body>
+  <style>
+    body {
+      position: relative;
+      margin: 0;
+    }
+
+    #follower {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+  <script>
+    const follower = document.getElementById("follower");
+    const body = document.getElementById("body");
+    let x = 0;
+    let y = 0;
+    let follows = true;
+
+    follower.addEventListener("mouseover", positionFollower);
+
+    follower.addEventListener("click", () => {
+      follows = false;
+    });
+
+    function positionFollower() {
+      body.onmousemove = (e) => {
+        const rect = follower.getBoundingClientRect();
+        x = e.clientX - 50;
+        y = e.clientY - 50;
+
+        if (follows === true) {
+          follower.style.left = `${x}px`;
+          follower.style.top = `${y}px`;
+        }
+      };
+      follows = true;
+    }
+  </script>
+</html>
