@@ -1,6 +1,7 @@
 /* definitions */
 
 :root {
+<<<<<<< Updated upstream
   --color-primary-100: #f8bdb5;
   --color-primary-200: #f39284;
   --color-primary-500: #ef6d5b;
@@ -19,6 +20,23 @@
   --color-complementary-500: #5bddef;
   --color-complementary-800: #409ba7;
 
+=======
+  --color-primary-100: #efa4b8;
+  --color-primary-200: #e46b8c;
+  --color-primary-500: #d61c4e;
+  --color-primary-800: #8b1233;
+
+  --color-secondary-500: #feb139;
+  --color-secondary-800: #a57325;
+
+  --color-highlight-200: #5f6789;
+  --color-highlight-500: #293462;
+
+  --color-complementary-200: #8eebd2;
+  --color-complementary-500: #1cd6a4;
+  --color-complementary-800: #149673;
+
+>>>>>>> Stashed changes
   --background-color-200: #f7eed5;
   --background-color-500: #e8d08e;
 
@@ -96,6 +114,7 @@ a {
   text-decoration: none;
 }
 
+<<<<<<< Updated upstream
 h2,
 h3,
 h4,
@@ -326,3 +345,6 @@ main #dishes {
 #dishes > div > div.dishes-item-wrapper > .dishes-more:hover {
   color: var(--color-highlight-200);
 }
+=======
+
+>>>>>>> Stashed changes
