@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2rem;
+  background-color: #000028;
+  color: white;
+}
+
+.container {
+  width: 80vw;
+  background-color: #00005b;
+  padding-block: 5vh;
+  padding-inline: 5vw;
+  min-height: 80vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  gap: 5px;
+}
+
+section {
+  margin-top: 20px;
+}
+
+hr {
+  border: solid 1px;
+}
+
+p {
+  margin-block: 5px;
+}
+
+.result-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-item {
+  display: flex;
+}
+
+.money-left-negative {
+  color: crimson;
+  font-weight: bold;
+}
+
+.money-left-positive {
+  color: lime;
+}
+
+.input-error {
+  outline-color: crimson;
+}

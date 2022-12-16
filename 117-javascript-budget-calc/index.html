@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+    <title>Mini-Project: Budget Calculator</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <section id="budget">
+          <h1>Budget Calculator</h1>
+          <form id="budget-form">
+            <label for="budget-input">Budget: </label>
+            <input type="text" name="budget-input" id="budget-input" /><input
+              type="button"
+              value="Save Budget"
+            />
+          </form>
+        </section>
+        <section id="expenses">
+          <h2>Expenses</h2>
+          <form id="expenses-form">
+            <label for="expenses-input-text">Expense: </label
+            ><input
+              type="text"
+              name="expenses-input-text"
+              id="expenses-input-text"
+            />
+            <label for="expenses-input">Amount: </label
+            ><input type="text" name="expenses-input" id="expenses-input" />
+            <input type="button" value="Save Expense" />
+          </form>
+        </section>
+        <section id="result">
+          <div class="result-div">
+            <span class="budget-result"
+              >Budget: <span id="budget-result-span"></span></span
+            ><span class="expenses-result"
+              >Expenses : <span id="expenses-result-span"></span
+            ></span>
+            <ul id="expenses-result-list"></ul>
+          </div>
+          <hr />
+          <div class="expenses-result-money-left">
+            <span>Money left: $<span id="money-left"></span></span>
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
