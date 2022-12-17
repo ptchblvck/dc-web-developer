@@ -11,17 +11,27 @@ const saveExpensesButton = document.querySelector(
 );
 const budgetForm = document.getElementById("budget-form");
 const expensesForm = document.getElementById("expenses-form");
+const categoryForm = document.getElementById("category-form");
 const budgetResultSpan = document.getElementById("budget-result-span");
 const expensesResultSpan = document.getElementById("expenses-result-span");
 const expensesResultList = document.getElementById("expenses-result-list");
-const expenseInputColor = document.getElementById("expenses-input-color");
 const moneyLeftAmount = document.getElementById("money-left");
 const clearLocalStorageButton = document.getElementById("clear-storage");
+
+const categoryInputType = document.getElementById("category-input-type");
+const categoryInputColor = document.getElementById("category-input-color");
+const categoryInputButton = document.getElementById("category-input-button");
 
 // storage
 
 const budgetFromLocalStorage = localStorage.getItem("budget");
 let budget = budgetFromLocalStorage ? parseInt(budgetFromLocalStorage) : 0;
+
+const categoryFromLocalStorage = localStorage.getItem("category");
+const categoryListArray = categoryFromLocalStorage
+  ? JSON.parse(categoryFromLocalStorage)
+  : [];
+let categoryItem = "";
 
 let expenseAmount = 0;
 let expenseItem = "";
@@ -33,7 +43,7 @@ const expensesListArray = expensesFromLocalStorage
   : [];
 
 let moneyLeft = 0;
-let itemColor = expenseInputColor.value;
+let itemColor = "#ffffff";
 
 // event listeners
 
@@ -52,6 +62,8 @@ expenseInputAmount.addEventListener("keydown", (e) => {
     expensesRoutine();
   }
 });
+
+categoryInputButton.addEventListener("click", categoryRoutine);
 
 window.addEventListener("load", updateInterface);
 
@@ -96,7 +108,6 @@ function expensesRoutine() {
 function addExpense() {
   validateExpenseInputText();
   validateExpenseInputAmount();
-  itemColor = expenseInputColor.value;
   expenseAddDate = getTimeAndDate();
 
   if (
@@ -109,7 +120,6 @@ function addExpense() {
       description: expenseItem,
       amount: expenseAmount,
       dateAdded: expenseAddDate,
-      color: itemColor,
     });
   }
 }
@@ -127,6 +137,16 @@ function validateExpenseInputAmount() {
     isValidNumber(expenseInputAmount)
   ) {
     expenseAmount = parseInt(expenseInputAmount.value);
+    return true;
+  } else return false;
+}
+
+function validateCategoryInputText() {
+  if (
+    isValidInputLength(categoryInputType) &&
+    isValidString(categoryInputType)
+  ) {
+    categoryItem = categoryInputType.value;
     return true;
   } else return false;
 }
@@ -160,7 +180,7 @@ function generateExpenseList() {
     const listItem = document.createElement("li");
     listItem.textContent = `${expense.description}: $ ${expense.amount} added ${expense.dateAdded}`;
     listItem.classList.add("list-item");
-    listItem.style.color = expense.color;
+    // listItem.style.color = expense.color;
     // button for each li item
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "X";
@@ -198,7 +218,7 @@ function isValidNumber(number) {
 }
 
 function isValidString(input) {
-  if (!input.value.match(/^[A-Za-z]/g)) {
+  if (!input.value.match(/^[A-Z][a-z]/g)) {
     throw new Error(input.id + " is not a valid String!");
   } else return true;
 }
@@ -294,6 +314,27 @@ function getTimeAndDate() {
 }
 
 function clearLocalStorage() {
-  localStorage.clear();
   updateInterface();
+  localStorage.clear();
+}
+
+function categoryRoutine() {
+  try {
+    addCategory();
+  } catch (error) {
+    showToastMessage("error", "CATEGORY", Error);
+  }
+}
+
+function addCategory() {
+  validateCategoryInputText();
+  if (validateCategoryInputText === true) {
+    itemColor = categoryInputColor.value;
+    console.log("Category type: " + categoryItem + " added.");
+    categoryListArray.push({
+      description: categoryItem,
+      color: itemColor,
+    });
+    console.log(categoryListArray);
+  }
 }

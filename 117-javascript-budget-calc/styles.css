@@ -21,6 +21,23 @@ body {
   min-height: 80vh;
 }
 
+#expenses > div {
+  display: flex;
+  gap: 5vw;
+}
+
+#expenses > div > form {
+  flex-grow: 1;
+}
+
+#expenses > div > form > div > input[type="text"] {
+  min-width: 48%;
+}
+
+#expenses > div > form:last-child > div > input[type="text"] {
+  min-width: 62%;
+}
+
 form {
   display: flex;
   flex-direction: column;

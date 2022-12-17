@@ -23,26 +23,55 @@
         </section>
         <section id="expenses">
           <h2>Expenses</h2>
-          <form id="expenses-form">
-            <label for="expenses-input-text">Expense: </label
-            ><input
-              type="text"
-              name="expenses-input-text"
-              id="expenses-input-text"
-            />
-            <label for="expenses-input-amount">Amount: </label
-            ><input
-              type="text"
-              name="expenses-input-amount"
-              id="expenses-input-amount"
-            />
-            <input
-              type="color"
-              name="expenses-input-color"
-              id="expenses-input-color"
-            />
-            <input type="button" value="Save Expense" />
-          </form>
+          <div>
+            <form id="expenses-form">
+              <div class="expense-category-container">
+                <label for="expenses-input-text">Expense: </label
+                ><input
+                  type="text"
+                  name="expenses-input-text"
+                  id="expenses-input-text"
+                />
+                <label for="expenses-input-category">Category:</label>
+                <select
+                  name="expenses-input-category"
+                  id="expenses-input-category"
+                >
+                  <option value="">--select category--</option>
+                  <option value="car">Car</option>
+                  <option value="house">House</option>
+                  <option value="groceries">Groceries</option>
+                </select>
+              </div>
+              <label for="expenses-input-amount">Amount: </label
+              ><input
+                type="text"
+                name="expenses-input-amount"
+                id="expenses-input-amount"
+              />
+              <input type="button" value="Save Expense" />
+            </form>
+            <form id="category-form">
+              <div class="category-form-label-text">
+                <label for="category-type">Category Type: </label>
+                <input
+                  type="text"
+                  name="category-input-type"
+                  id="category-type-input"
+                />
+                <input
+                  type="color"
+                  name="category-input-color"
+                  id="category-input-color"
+                />
+              </div>
+              <input
+                type="button"
+                value="Add category"
+                id="category-input-button"
+              />
+            </form>
+          </div>
         </section>
         <section id="result">
           <div class="result-div">
