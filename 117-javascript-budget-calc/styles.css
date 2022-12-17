@@ -13,6 +13,7 @@ body {
 }
 
 .container {
+  position: relative;
   width: 80vw;
   background-color: #00005b;
   padding-block: 5vh;
@@ -23,8 +24,24 @@ body {
 form {
   display: flex;
   flex-direction: column;
-  width: 200px;
+  max-width: 600px;
   gap: 5px;
+}
+
+button,
+form > input[type="button"] {
+  min-width: fit-content;
+  max-width: 120px;
+  background-color: violet;
+  border: slateblue solid 2px;
+  border-radius: 5px;
+}
+
+button:hover,
+form > input[type="button"]:hover {
+  background-color: deeppink;
+  color: white;
+  border-color: darkorchid;
 }
 
 section {
@@ -46,6 +63,7 @@ p {
 
 .list-item {
   display: flex;
+  gap: 2px;
 }
 
 .money-left-negative {
@@ -59,4 +77,80 @@ p {
 
 .input-error {
   outline-color: crimson;
+}
+
+.toast-msg {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1rem;
+  width: fit-content;
+  height: fit-content;
+  z-index: 99;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: grid;
+  justify-content: start;
+  color: #333;
+  background-color: white;
+  padding: 10px;
+  opacity: 0;
+}
+
+.visible {
+  animation: fadeInRight 500ms;
+  opacity: 1;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.success {
+  border-left: green 5px solid;
+}
+
+.error {
+  border-left: red 5px solid;
+}
+
+.warning {
+  border-left: orange 5px solid;
+}
+
+.info {
+  border-left: lightskyblue 5px solid;
+}
+
+.toast-msg h4 {
+  margin: 0;
+}
+.toast-msg p {
+  margin: 0;
+}
+
+.list-item > button {
+  height: 20px;
+  width: 20px;
+  margin-left: 15px;
+  border: none;
+  border-radius: 3px;
+  background-color: violet;
+  color: black;
+}
+
+.list-item > button:hover {
+  background-color: deeppink;
+  color: white;
+}
+
+#clear-storage {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
 }

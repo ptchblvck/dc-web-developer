@@ -1,8 +1,8 @@
 // variables for DOM
 
 const budgetInput = document.getElementById("budget-input");
-const expensesInputText = document.getElementById("expenses-input-text");
-const expenseInputAmount = document.getElementById("expenses-input");
+const expenseInputText = document.getElementById("expenses-input-text");
+const expenseInputAmount = document.getElementById("expenses-input-amount");
 const saveBudgetButton = document.querySelector(
   "#budget-form > input[type=button]"
 );
@@ -14,15 +14,26 @@ const expensesForm = document.getElementById("expenses-form");
 const budgetResultSpan = document.getElementById("budget-result-span");
 const expensesResultSpan = document.getElementById("expenses-result-span");
 const expensesResultList = document.getElementById("expenses-result-list");
+const expenseInputColor = document.getElementById("expenses-input-color");
 const moneyLeftAmount = document.getElementById("money-left");
+const clearLocalStorageButton = document.getElementById("clear-storage");
 
-let budget = 0;
+// storage
+
+const budgetFromLocalStorage = localStorage.getItem("budget");
+let budget = budgetFromLocalStorage ? parseInt(budgetFromLocalStorage) : 0;
+
 let expenseAmount = 0;
 let expenseItem = "";
 let expenseSum = 0;
-const expensesListArray = [];
+let expenseAddDate = 0;
+const expensesFromLocalStorage = localStorage.getItem("expenses");
+const expensesListArray = expensesFromLocalStorage
+  ? JSON.parse(expensesFromLocalStorage)
+  : [];
 
 let moneyLeft = 0;
+let itemColor = expenseInputColor.value;
 
 // event listeners
 
@@ -42,66 +53,104 @@ expenseInputAmount.addEventListener("keydown", (e) => {
   }
 });
 
+window.addEventListener("load", updateInterface);
+
+clearLocalStorageButton.addEventListener("click", clearLocalStorage);
+
 // functions
 
 function budgetRoutine() {
   try {
     setBudget();
-    validateMoneyLeft();
-    updateMoneyLeft();
+    showToastMessage("success", "Budget", "Budget saved successfully.");
+    updateInterface();
+
+    budgetForm.reset();
   } catch (Error) {
-    alert(Error);
+    showToastMessage("error", "BUDGET", Error);
   }
 }
 
 function setBudget() {
   console.log(budgetInput.value);
-  isValidInputLength(budgetInput.value);
-  let budgetInputValue = parseInt(budgetInput.value);
-  if (isValidNumber(budgetInputValue)) {
-    budget = budgetInputValue;
+  if (isValidInputLength(budgetInput) && isValidNumber(budgetInput)) {
+    budget = parseInt(budgetInput.value);
     console.log("set Budget:", budget);
     budgetResultSpan.textContent = "$" + budget;
-    budgetForm.reset();
   }
 }
 
 function expensesRoutine() {
   try {
     addExpense();
-    expensesForm.reset();
     console.log("Expenses List:", expensesListArray);
-    generateExpenseList();
-    updateMoneyLeft();
-    validateMoneyLeft();
+    showToastMessage("success", "Expense", "Expense saved successfully.");
+    updateInterface();
+
+    expensesForm.reset();
   } catch (Error) {
-    alert(Error);
+    showToastMessage("error", "EXPENSES", Error);
   }
 }
 
 function addExpense() {
-  if (isValidString(expensesInputText.value)) {
-    expenseItem = expensesInputText.value;
+  validateExpenseInputText();
+  validateExpenseInputAmount();
+  itemColor = expenseInputColor.value;
+  expenseAddDate = getTimeAndDate();
+
+  if (
+    validateExpenseInputText() === true &&
+    validateExpenseInputAmount() === true
+  ) {
+    console.log("set Expense:", expenseItem);
+    console.log("set Expense amount:", expenseAmount);
+    expensesListArray.push({
+      description: expenseItem,
+      amount: expenseAmount,
+      dateAdded: expenseAddDate,
+      color: itemColor,
+    });
   }
-  if (isValidNumber(expenseInputAmount.value)) {
+}
+
+function validateExpenseInputText() {
+  if (isValidInputLength(expenseInputText) && isValidString(expenseInputText)) {
+    expenseItem = expenseInputText.value;
+    return true;
+  } else return false;
+}
+
+function validateExpenseInputAmount() {
+  if (
+    isValidInputLength(expenseInputAmount) &&
+    isValidNumber(expenseInputAmount)
+  ) {
     expenseAmount = parseInt(expenseInputAmount.value);
-  }
-  console.log("set Expense:", expenseItem);
-  console.log("set Expense amount:", expenseAmount);
-  expensesListArray.push({
-    description: expenseItem,
-    amount: expenseAmount,
-  });
+    return true;
+  } else return false;
 }
 
 function sumOfExpenses() {
   expenseSum = 0;
-  expensesListArray.forEach((element) => {
-    expenseSum += element.amount;
+  expensesListArray.forEach((expense) => {
+    expenseSum += expense.amount;
   });
   moneyLeft = parseInt(budget - expenseSum);
   console.log("Money left:", moneyLeft);
 }
+
+/**
+ * @param {Object} expense - for every 'expense.description' and 'expense.amount'
+ *  in the array create the 'textContent' of a new <li></li> HTML element.
+ *
+ * @param {Number} index - every 'index' in the array also will add a <button></button>
+ *  HTML element ith an eventListener("click") to the newly created <li></li> HTML element.
+ *
+ * if that <button></button> element is clicked -> deletes the <li></li> HTML element
+ *  and it's content not only from the DOM but also in the array.
+ *
+ */
 
 function generateExpenseList() {
   expensesResultList.innerHTML = "";
@@ -109,8 +158,9 @@ function generateExpenseList() {
   expensesListArray.forEach((expense, index) => {
     // li for each expense in array
     const listItem = document.createElement("li");
-    listItem.textContent = `${expense.description}: $ ${expense.amount}`;
+    listItem.textContent = `${expense.description}: $ ${expense.amount} added ${expense.dateAdded}`;
     listItem.classList.add("list-item");
+    listItem.style.color = expense.color;
     // button for each li item
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "X";
@@ -125,43 +175,125 @@ function generateExpenseList() {
 
 function updateMoneyLeft() {
   sumOfExpenses();
-  moneyLeftAmount.textContent = moneyLeft;
+  moneyLeftAmount.textContent = "$" + moneyLeft;
 }
 
 function isValidInputLength(input) {
-  if (!input.length) {
-    console.log(input, "invalid!");
-    throw new Error(input, "is empty!");
+  if (!input.value.length) {
+    console.log(input.id, " length is invalid!");
+    throw new Error(input.id + " is empty!");
   } else return true;
 }
 
 function isValidNumber(number) {
-  if (isNaN(number)) {
-    throw new Error(number, "is not a Number!");
-  } else return true;
+  if (number.value < 0) {
+    throw new Error("negative number: " + number.id + " is not allowed!");
+  }
+
+  if (typeof parseInt(number.value) != "number") {
+    throw new Error(number.id + " is not a Number!");
+  }
+
+  return true;
 }
 
 function isValidString(input) {
-  if (!input.match(/^[A-Za-z]/g)) {
-    throw new Error(input, "is not a valid String!");
+  if (!input.value.match(/^[A-Za-z]/g)) {
+    throw new Error(input.id + " is not a valid String!");
   } else return true;
 }
 
 function deleteExpense(index) {
   expensesListArray.splice(index, 1);
   console.log(expensesListArray);
-  generateExpenseList();
-  updateMoneyLeft();
+  showToastMessage("info", "Update", "Expense deleted.");
+  updateInterface();
 }
+
+/**
+ * sets classes for Budget styling:
+ *
+ * if 'moneyLeft' < 0 = negative
+ *
+ * if 'moneyLeft' > 0 = positive
+ *
+ * negative -> budget amount becomes RED
+ *
+ * positive -> budget amount becomes GREEN
+ *
+ */
 
 function validateMoneyLeft() {
   moneyLeftAmount.className = "";
   if (moneyLeft < 0) {
     moneyLeftAmount.classList.add("money-left-negative");
+    showToastMessage(
+      "warning",
+      "Discrepancy",
+      "Expenses are higher than Budget."
+    );
   }
   if (moneyLeft > 0) {
     moneyLeftAmount.classList.add("money-left-positive");
   }
 }
 
-updateMoneyLeft();
+function updateInterface() {
+  updateMoneyLeft();
+  validateMoneyLeft();
+  generateExpenseList();
+  saveInterfaceToLocalStorage();
+}
+
+function saveInterfaceToLocalStorage() {
+  let expensesStringified = JSON.stringify(expensesListArray);
+  localStorage.setItem("expenses", expensesStringified);
+  localStorage.setItem("budget", budget);
+}
+
+/**
+ * Shows a custom toast message
+ *
+ * @param {String} type         available types: error, success, warning, info
+ * @param {String} title        title to display
+ * @param {String} message      Message to display [String]
+ * @param {Number} duration     Display duration in milliseconds - default set to 2000sec
+ *
+ * @copyright Marco
+ */
+
+function showToastMessage(type, title, message, duration = 2000) {
+  //Todo: replace with marco's custom alert functionality after implementation
+  const toastContainer = document.querySelector(".toast-msg");
+  toastContainer.className = "toast-msg";
+  toastContainer.classList.add(type, "visible");
+  toastContainer.innerHTML = "<h4>" + title + "</h4><p>" + message + "</p>";
+  setTimeout(() => {
+    toastContainer.innerHTML = "";
+    toastContainer.classList.remove(type, "visible");
+  }, duration);
+}
+
+/**
+ * @returns {String} dateTime - a String value with the local time and date.
+ */
+
+function getTimeAndDate() {
+  const today = new Date();
+  // the long and complicated way with date as well!
+  let seconds = today.getSeconds();
+  const date =
+    today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+  if (seconds < 10) {
+    seconds = "0" + today.getSeconds();
+  }
+  const time = today.getHours() + ":" + today.getMinutes() + ":" + seconds;
+  const dateTime = "at " + time + " on " + date;
+  console.log(dateTime);
+  return dateTime;
+}
+
+function clearLocalStorage() {
+  localStorage.clear();
+  updateInterface();
+}

@@ -30,8 +30,17 @@
               name="expenses-input-text"
               id="expenses-input-text"
             />
-            <label for="expenses-input">Amount: </label
-            ><input type="text" name="expenses-input" id="expenses-input" />
+            <label for="expenses-input-amount">Amount: </label
+            ><input
+              type="text"
+              name="expenses-input-amount"
+              id="expenses-input-amount"
+            />
+            <input
+              type="color"
+              name="expenses-input-color"
+              id="expenses-input-color"
+            />
             <input type="button" value="Save Expense" />
           </form>
         </section>
@@ -46,10 +55,15 @@
           </div>
           <hr />
           <div class="expenses-result-money-left">
-            <span>Money left: $<span id="money-left"></span></span>
+            <span>Money left: <span id="money-left"></span></span>
           </div>
         </section>
+        <div id="notification" class="notification-box">
+          <div id="notification__message"></div>
+        </div>
+        <button id="clear-storage">Clear Storage</button>
       </div>
     </main>
+    <div class="toast-msg"></div>
   </body>
 </html>
