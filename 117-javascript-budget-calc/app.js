@@ -4,6 +4,7 @@ const budgetInput = document.getElementById("budget-input");
 const expenseInputText = document.getElementById("expenses-input-text");
 const expenseInputAmount = document.getElementById("expenses-input-amount");
 const expenseInputCategory = document.getElementById("expenses-input-category");
+const expenseInputCategoryList = document.querySelectorAll("select > option");
 const saveBudgetButton = document.querySelector(
   "#budget-form > input[type=button]"
 );
@@ -27,6 +28,15 @@ const categoryInputButton = document.getElementById("category-input-button");
 
 const root = getComputedStyle(document.querySelector(":root"));
 let cssCategoryItemColor = root.getPropertyValue("--category-item-color");
+const cssCategoryColors = [];
+cssCategoryColors.push("");
+cssCategoryColors.push(root.getPropertyValue("--category-car-color"));
+cssCategoryColors.push(root.getPropertyValue("--category-house-color"));
+cssCategoryColors.push(root.getPropertyValue("--category-groceries-color"));
+const cssCategoryColorsClean = [];
+cssCategoryColors.forEach((color) => {
+  cssCategoryColorsClean.push(color.substring(1, color.length));
+});
 
 // storage
 
@@ -75,6 +85,23 @@ window.addEventListener("load", updateInterface);
 
 clearLocalStorageButton.addEventListener("click", clearLocalStorage);
 
+// preparation
+
+function prepareTheCategories() {
+  for (let i = 1; i < expenseInputCategoryList.length; i++) {
+    const categoryPreset = expenseInputCategoryList[i];
+    let categoryPresetValue = categoryPreset.value;
+    if (
+      !Array.prototype.includes.call(categoryListArray, categoryPresetValue)
+    ) {
+      categoryListArray.push({
+        description: categoryPreset.value,
+        color: cssCategoryColorsClean[i],
+      });
+    }
+  }
+}
+
 // functions
 
 function budgetRoutine() {
@@ -115,6 +142,10 @@ function addExpense() {
   validateExpenseInputText();
   validateExpenseInputAmount();
   expenseAddDate = getTimeAndDate();
+
+  if (cssCategoryColorsClean.indexOf()) {
+  }
+
   categoryItem = expenseInputCategory.value;
 
   if (
@@ -188,7 +219,16 @@ function generateExpenseList() {
     const listItem = document.createElement("li");
     listItem.textContent = `${expense.description}: $ ${expense.amount} added ${expense.dateAdded}`;
     listItem.classList.add("list-item");
+    // listItem.classList.add(categoryListArray[index].description);
     // listItem.style.color = expense.color;
+    // if (
+    //   expense.description == "car" ||
+    //   expense.description == "house" ||
+    //   expense.description == "groceries"
+    // ) {
+    //   listItem.classList.add("category-" + expense.category + "-color");
+    // }
+    addCategoryStyle(listItem, index);
     // button for each li item
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "X";
@@ -267,6 +307,7 @@ function validateMoneyLeft() {
 }
 
 function updateInterface() {
+  prepareTheCategories();
   updateMoneyLeft();
   validateMoneyLeft();
   generateExpenseList();
@@ -332,6 +373,7 @@ function getTimeAndDate() {
 }
 
 function clearLocalStorage() {
+  categoryListArray.splice(0, categoryListArray.length);
   updateInterface();
   localStorage.clear();
   window.location.reload();
@@ -342,9 +384,9 @@ function categoryRoutine() {
     addCategory();
     showToastMessage("success", "Category", "Category added successfully.");
     updateInterface();
-
-    categoryInputColor.value = "#000000";
-    categoryInputType.value = "";
+    categoryForm.reset();
+    // categoryInputColor.value = "#000000";
+    // categoryInputType.value = "";
   } catch (error) {
     showToastMessage("error", "CATEGORY", Error);
   }
@@ -352,13 +394,32 @@ function categoryRoutine() {
 
 function addCategory() {
   validateCategoryInputText();
-  if (validateCategoryInputText === true) {
+  if (validateCategoryInputText() === true) {
     itemColor = categoryInputColor.value;
     console.log("Category type: " + categoryItem + " added.");
-    categoryListArray.push({
-      description: categoryItem,
-      color: itemColor,
-    });
+    updateCategorySelectOptions();
+    if (!Array.prototype.includes.call(categoryListArray, itemcolor)) {
+      categoryListArray.push({
+        description: categoryItem,
+        color: itemColor,
+      });
+    }
     console.log(categoryListArray);
   }
+}
+
+function updateCategorySelectOptions() {
+  expenseInputCategory.innerHTML = "";
+  categoryListArray.forEach((category, index) => {
+    const optionItem = document.createElement("option");
+    optionItem.innerText = category.description;
+    optionItem.value = category.description;
+    expenseInputCategory.append(optionItem);
+  });
+}
+
+function addCategoryStyle(element, index) {
+  cssCategoryItemColor = categoryListArray[index].color;
+  element.style.borderRight = `3px solid ${cssCategoryItemColor}`;
+  element.style.borderBottom = `3px solid ${cssCategoryItemColor}`;
 }
