@@ -1,3 +1,11 @@
+/* variables */
+:root {
+  --category-item-color: #000000;
+  --category-car-color: #8a2be2;
+  --category-house-color: #00ff7f;
+  --category-groceries-color: #ffd700;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -23,7 +31,7 @@ body {
 
 #expenses > div {
   display: flex;
-  gap: 5vw;
+  justify-content: space-between;
 }
 
 #expenses > div > form {
@@ -31,7 +39,7 @@ body {
 }
 
 #expenses > div > form > div > input[type="text"] {
-  min-width: 48%;
+  min-width: 43%;
 }
 
 #expenses > div > form:last-child > div > input[type="text"] {
@@ -170,4 +178,24 @@ p {
   position: absolute;
   right: 20px;
   bottom: 20px;
+}
+
+.category-item-color {
+  border-bottom: var(--category-item-color) 3px solid;
+  border-right: var(--category-item-color) 3px solid;
+}
+
+.category-car-color {
+  border-bottom: var(--category-car-color) 3px solid;
+  border-right: var(--category-car-color) 3px solid;
+}
+
+.category-house-color {
+  border-bottom: var(--category-house-color) 3px solid;
+  border-right: var(--category-house-color) 3px solid;
+}
+
+.category-groceries-color {
+  border-bottom: var(--category-groceries-color) 3px solid;
+  border-right: var(--category-groceries-color) 3px solid;
 }

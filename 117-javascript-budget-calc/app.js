@@ -3,6 +3,7 @@
 const budgetInput = document.getElementById("budget-input");
 const expenseInputText = document.getElementById("expenses-input-text");
 const expenseInputAmount = document.getElementById("expenses-input-amount");
+const expenseInputCategory = document.getElementById("expenses-input-category");
 const saveBudgetButton = document.querySelector(
   "#budget-form > input[type=button]"
 );
@@ -21,6 +22,11 @@ const clearLocalStorageButton = document.getElementById("clear-storage");
 const categoryInputType = document.getElementById("category-input-type");
 const categoryInputColor = document.getElementById("category-input-color");
 const categoryInputButton = document.getElementById("category-input-button");
+
+// css variables
+
+const root = getComputedStyle(document.querySelector(":root"));
+let cssCategoryItemColor = root.getPropertyValue("--category-item-color");
 
 // storage
 
@@ -109,6 +115,7 @@ function addExpense() {
   validateExpenseInputText();
   validateExpenseInputAmount();
   expenseAddDate = getTimeAndDate();
+  categoryItem = expenseInputCategory.value;
 
   if (
     validateExpenseInputText() === true &&
@@ -120,6 +127,7 @@ function addExpense() {
       description: expenseItem,
       amount: expenseAmount,
       dateAdded: expenseAddDate,
+      category: categoryItem,
     });
   }
 }
@@ -267,8 +275,10 @@ function updateInterface() {
 
 function saveInterfaceToLocalStorage() {
   let expensesStringified = JSON.stringify(expensesListArray);
+  let categoryStringified = JSON.stringify(categoryListArray);
   localStorage.setItem("expenses", expensesStringified);
   localStorage.setItem("budget", budget);
+  localStorage.setItem("category", categoryStringified);
 }
 
 /**
@@ -302,12 +312,20 @@ function getTimeAndDate() {
   const today = new Date();
   // the long and complicated way with date as well!
   let seconds = today.getSeconds();
+  let minutes = today.getMinutes();
+  let hours = today.getHours();
   const date =
     today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
   if (seconds < 10) {
     seconds = "0" + today.getSeconds();
   }
-  const time = today.getHours() + ":" + today.getMinutes() + ":" + seconds;
+  if (minutes < 10) {
+    minutes = "0" + today.getSeconds();
+  }
+  if (hours < 10) {
+    hours = "0" + today.getSeconds();
+  }
+  const time = hours + ":" + minutes + ":" + seconds;
   const dateTime = "at " + time + " on " + date;
   console.log(dateTime);
   return dateTime;
@@ -316,11 +334,17 @@ function getTimeAndDate() {
 function clearLocalStorage() {
   updateInterface();
   localStorage.clear();
+  window.location.reload();
 }
 
 function categoryRoutine() {
   try {
     addCategory();
+    showToastMessage("success", "Category", "Category added successfully.");
+    updateInterface();
+
+    categoryInputColor.value = "#000000";
+    categoryInputType.value = "";
   } catch (error) {
     showToastMessage("error", "CATEGORY", Error);
   }
