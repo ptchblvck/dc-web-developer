@@ -92,7 +92,7 @@ function prepareTheCategories() {
     const categoryPreset = expenseInputCategoryList[i];
     let categoryPresetValue = categoryPreset.value;
     if (
-      !Array.prototype.includes.call(categoryListArray, categoryPresetValue)
+      !Object.values(categoryListArray[i - 1]).includes(categoryPresetValue)
     ) {
       categoryListArray.push({
         description: categoryPreset.value,
