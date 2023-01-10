@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Calculator</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Budget Calculator</h1>
+      </header>
+
+      <section class="budget-section">
+        <h2>Budget</h2>
+        <form>
+          <label for="budget">Betrag</label>
+          <input type="text" id="budget-amount" />
+          <button id="budget-button">Budget übernehmen</button>
+        </form>
+      </section>
+      <hr />
+      <section class="expenses-section">
+        <h2>Ausgaben</h2>
+        <form id="expense-form">
+          <label for="expense-description">Ausgabe</label>
+          <input type="text" id="expense-description" />
+          <label for="">Betrag</label>
+          <input type="text" id="expense-amount" />
+          <label for="">Datum</label>
+          <input type="date" id="expense-date" />
+          <label for="">Kategorie</label>
+          <select name="" id="expense-categories">
+            <option value="Kleidung">Kleidung</option>
+            <option value="Lebensmittel">Lebensmittel</option>
+            <option value="Freizeit">Freizeit</option>
+          </select>
+          <button id="expense-button">Ausgabe speichern</button>
+        </form>
+      </section>
+      <hr />
+      <section class="output-section">
+        <h2>Ergebnis</h2>
+        <p>Budget <span id="final-budget">0</span> €</p>
+        <p>Ausgaben <span id="final-expenses">0</span> €</p>
+        <ul id="expense-list"></ul>
+
+        <div>
+          <p>Restbetrag <span id="balance">0</span> €</p>
+        </div>
+
+        <button id="clear-site">Clear</button>
+      </section>
+    </main>
+    <div class="toast-msg"></div>
+  </body>
+</html>
