@@ -5,6 +5,15 @@ const expenseInputText = document.getElementById("expenses-input-text");
 const expenseInputAmount = document.getElementById("expenses-input-amount");
 const expenseInputCategory = document.getElementById("expenses-input-category");
 const expenseInputCategoryList = document.querySelectorAll("select > option");
+const expenseInputCategoryListModified = [];
+
+expenseInputCategoryList.forEach((element) => {
+  expenseInputCategoryListModified.push({
+    html: element.innerText,
+    value: element.value,
+  });
+});
+
 const saveBudgetButton = document.querySelector(
   "#budget-form > input[type=button]"
 );
@@ -92,6 +101,7 @@ function prepareTheCategories() {
     const categoryPreset = expenseInputCategoryList[i];
     let categoryPresetValue = categoryPreset.value;
     if (
+      !categoryListArray.length &&
       !Object.values(categoryListArray[i - 1]).includes(categoryPresetValue)
     ) {
       categoryListArray.push({
@@ -410,10 +420,10 @@ function addCategory() {
 
 function updateCategorySelectOptions() {
   expenseInputCategory.innerHTML = "";
-  categoryListArray.forEach((category, index) => {
+  expenseInputCategoryListModified.forEach((category, index) => {
     const optionItem = document.createElement("option");
-    optionItem.innerText = category.description;
-    optionItem.value = category.description;
+    optionItem.innerText = category.html;
+    optionItem.value = category.value;
     expenseInputCategory.append(optionItem);
   });
 }
